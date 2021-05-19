@@ -1,0 +1,459 @@
+1) Get Referral My Schedule List:
+URL: https://referralapi.convenientcare.life/api/Case_Details/GetCaseDetails
+REQUEST:
+{
+    "dml_indicator": "SCD",
+    "referral_code_id": "1"
+}
+RESPONSE:
+{
+    "Table": [
+        {
+            "case_id": "CID0000000011",
+            "referral_code_id": 1,
+            "patient_id": "PCH000008",
+            "individual_id": "1204",
+            "patient_name": "Parthiban1234",
+            "phone_number_1": "22223333",
+            "age": "0",
+            "dob": "23-Dec-2020",
+            "gender": "1",
+            "doctor_id": "USD00001",
+            "doctor_name": "DR.ARUN KESAVAN",
+            "doctor_phone_number": "7401826091",
+            "hospital_name": "URSUGAR",
+            "classification": "south",
+            "created_on": "08-Apr-2021 06:25 PM"
+        },
+        {
+            "case_id": "CID0000000012",
+            "referral_code_id": 1,
+            "patient_id": "PCH000008",
+            "individual_id": "1204",
+            "patient_name": "Parthiban1234",
+            "phone_number_1": "22223333",
+            "age": "0",
+            "dob": "23-Dec-2020",
+            "gender": "1",
+            "doctor_id": "USD00001",
+            "doctor_name": "DR.ARUN KESAVAN",
+            "doctor_phone_number": "7401826091",
+            "hospital_name": "URSUGAR",
+            "classification": "north",
+            "created_on": "08-Apr-2021 06:28 PM"
+        },
+        {
+            "case_id": "CID0000000014",
+            "referral_code_id": 1,
+            "patient_id": "PCH000008",
+            "individual_id": "1204",
+            "patient_name": "Parthiban1234",
+            "phone_number_1": "22223333",
+            "age": "0",
+            "dob": "23-Dec-2020",
+            "gender": "1",
+            "doctor_id": "USD00001",
+            "doctor_name": "DR.ARUN KESAVAN",
+            "doctor_phone_number": "7401826091",
+            "hospital_name": "URSUGAR",
+            "classification": "asdsad",
+            "created_on": "08-Apr-2021 06:37 PM"
+        },
+        {
+            "case_id": "CID0000000015",
+            "referral_code_id": 1,
+            "patient_id": "PCH000008",
+            "individual_id": "1204",
+            "patient_name": "Parthiban1234",
+            "phone_number_1": "22223333",
+            "age": "0",
+            "dob": "23-Dec-2020",
+            "gender": "1",
+            "doctor_id": "USD00001",
+            "doctor_name": "DR.ARUN KESAVAN",
+            "doctor_phone_number": "7401826091",
+            "hospital_name": "URSUGAR",
+            "classification": "north",
+            "created_on": "08-Apr-2021 06:42 PM"
+        },
+        {
+            "case_id": "CID0000000016",
+            "referral_code_id": 1,
+            "patient_id": "PCH000008",
+            "individual_id": "1204",
+            "patient_name": "Parthiban1234",
+            "phone_number_1": "22223333",
+            "age": "0",
+            "dob": "23-Dec-2020",
+            "gender": "1",
+            "doctor_id": "USD00001",
+            "doctor_name": "DR.ARUN KESAVAN",
+            "doctor_phone_number": "7401826091",
+            "hospital_name": "URSUGAR",
+            "classification": "sadsad",
+            "created_on": "08-Apr-2021 06:43 PM"
+        },
+        {
+            "case_id": "CID0000000024",
+            "referral_code_id": 1,
+            "patient_id": "PCH000350",
+            "individual_id": "1831",
+            "patient_name": "RFone-1",
+            "phone_number_1": "-",
+            "age": "5",
+            "dob": "09-Jun-2015",
+            "gender": "1",
+            "doctor_id": "USD00097",
+            "doctor_name": "doctor one",
+            "doctor_phone_number": "6767688877",
+            "hospital_name": "Hospital ABC",
+            "classification": "1",
+            "created_on": "19-Apr-2021 03:57 PM"
+        }
+    ]
+}
+
+
+2) Get More Details Based on CaseID
+URL: https://referralapi.convenientcare.life/api/Case_Details/GetCaseDetails
+REQUEST:
+{
+    "dml_indicator": "SCDM",
+    "referral_code_id": "1",
+    "case_id":"CID0000000011"
+}
+RESPONSE:
+{
+    "Table": [
+        {
+            "case_id": "CID0000000011",
+            "referral_code_id": 1,
+            "patient_id": "PCH000008",
+            "individual_id": "1204",
+            "patient_name": "Parthiban1234",
+            "phone_number_1": "22223333",
+            "age": "0",
+            "gender": 1,
+            "dob": "23-Dec-2020",
+            "gender1": 1,
+            "referred_reason": "hji",
+            "department": "heart",
+            "doctor_id": "USD00001",
+            "doctor_name": "DR.ARUN KESAVAN",
+            "doctor_phone_number": "7401826091",
+            "hospital_name": "URSUGAR",
+            "classification": "south",
+            "created_on": "08-Apr-2021 06:25 PM",
+            "refered_to": "DR.ARUN KESAVAN"
+        }
+    ]
+}
+
+
+3)Initiate Contact:
+URL:  https://referralapi.convenientcare.life/api/Case_Details/GetCaseDetails
+REQUEST:
+{
+    "dml_indicator": "CSC",
+    "referral_code_id": "1",
+    "case_id":"CID0000000011",
+    "case_status": "2"
+}
+RESPONSE:
+{
+    "Table": [
+        {
+            "case_id": "CID0000000012",
+            "referral_code_id": 1,
+            "patient_id": "PCH000008",
+            "individual_id": "1204",
+            "patient_name": "Parthiban1234",
+            "phone_number_1": "22223333",
+            "age": "0",
+            "dob": "23-Dec-2020",
+            "gender": 1,
+            "doctor_id": "USD00001",
+            "doctor_name": "DR.ARUN KESAVAN",
+            "doctor_phone_number": "7401826091",
+            "hospital_name": "URSUGAR",
+            "classification": "north",
+            "created_on": "08-Apr-2021 06:28 PM"
+        },
+        {
+            "case_id": "CID0000000014",
+            "referral_code_id": 1,
+            "patient_id": "PCH000008",
+            "individual_id": "1204",
+            "patient_name": "Parthiban1234",
+            "phone_number_1": "22223333",
+            "age": "0",
+            "dob": "23-Dec-2020",
+            "gender": 1,
+            "doctor_id": "USD00001",
+            "doctor_name": "DR.ARUN KESAVAN",
+            "doctor_phone_number": "7401826091",
+            "hospital_name": "URSUGAR",
+            "classification": "asdsad",
+            "created_on": "08-Apr-2021 06:37 PM"
+        },
+        {
+            "case_id": "CID0000000015",
+            "referral_code_id": 1,
+            "patient_id": "PCH000008",
+            "individual_id": "1204",
+            "patient_name": "Parthiban1234",
+            "phone_number_1": "22223333",
+            "age": "0",
+            "dob": "23-Dec-2020",
+            "gender": 1,
+            "doctor_id": "USD00001",
+            "doctor_name": "DR.ARUN KESAVAN",
+            "doctor_phone_number": "7401826091",
+            "hospital_name": "URSUGAR",
+            "classification": "north",
+            "created_on": "08-Apr-2021 06:42 PM"
+        },
+        {
+            "case_id": "CID0000000016",
+            "referral_code_id": 1,
+            "patient_id": "PCH000008",
+            "individual_id": "1204",
+            "patient_name": "Parthiban1234",
+            "phone_number_1": "22223333",
+            "age": "0",
+            "dob": "23-Dec-2020",
+            "gender": 1,
+            "doctor_id": "USD00001",
+            "doctor_name": "DR.ARUN KESAVAN",
+            "doctor_phone_number": "7401826091",
+            "hospital_name": "URSUGAR",
+            "classification": "sadsad",
+            "created_on": "08-Apr-2021 06:43 PM"
+        },
+        {
+            "case_id": "CID0000000024",
+            "referral_code_id": 1,
+            "patient_id": "PCH000350",
+            "individual_id": "1831",
+            "patient_name": "RFone-1",
+            "phone_number_1": "-",
+            "age": "5",
+            "dob": "09-Jun-2015",
+            "gender": 1,
+            "doctor_id": "USD00097",
+            "doctor_name": "doctor one",
+            "doctor_phone_number": "6767688877",
+            "hospital_name": "Hospital ABC",
+            "classification": "1",
+            "created_on": "19-Apr-2021 03:57 PM"
+        }
+    ]
+}
+
+
+
+4) Get Communications My schedule:
+URL: https://referralapi.convenientcare.life/api/Case_Details/GetCaseDetails
+REQUEST
+{
+    "dml_indicator": "SCDC",
+    "referral_code_id": "1"
+}
+RESPONSE:
+{
+    "Table": [
+        {
+            "case_id": "CID0000000002",
+            "referral_code_id": 1,
+            "patient_id": "PCH00001",
+            "individual_id": "1",
+            "patient_name": "Magic Parthiban",
+            "phone_number_1": "7598283836",
+            "age": "25",
+            "dob": "01-Oct-1996",
+            "gender": 1,
+            "doctor_id": "USD00001",
+            "doctor_name": "DR.Parthiban",
+            "doctor_phone_number": "7401826091",
+            "hospital_name": "Parthiban Hospitals",
+            "classification": "North",
+            "created_on": "29-Mar-2021 01:02 PM"
+        },
+        {
+            "case_id": "CID0000000007",
+            "referral_code_id": 1,
+            "patient_id": "PCH00004",
+            "individual_id": "1",
+            "patient_name": "MS Dhoni",
+            "phone_number_1": "7598283836",
+            "age": "25",
+            "dob": "01-Oct-1996",
+            "gender": 1,
+            "doctor_id": "USD00001",
+            "doctor_name": "DR.Parthiban",
+            "doctor_phone_number": "-",
+            "hospital_name": "Parthiban Hospitals",
+            "classification": "North",
+            "created_on": "31-Mar-2021 07:09 PM"
+        },
+        {
+            "case_id": "CID0000000011",
+            "referral_code_id": 1,
+            "patient_id": "PCH000008",
+            "individual_id": "1204",
+            "patient_name": "Parthiban1234",
+            "phone_number_1": "22223333",
+            "age": "0",
+            "dob": "23-Dec-2020",
+            "gender": 1,
+            "doctor_id": "USD00001",
+            "doctor_name": "DR.ARUN KESAVAN",
+            "doctor_phone_number": "7401826091",
+            "hospital_name": "URSUGAR",
+            "classification": "south",
+            "created_on": "08-Apr-2021 06:25 PM"
+        }
+    ]
+}
+
+
+
+5)Communication status changed to Lost:
+URL: https://referralapi.convenientcare.life/api/Case_Details/GetCaseDetails
+REQUEST:
+{
+    "dml_indicator": "CSCL",
+    "referral_code_id": "1",
+    "case_id":"CID0000000002",
+    "case_status": "5"
+}
+RESPONSE:
+{
+    "Table": [
+        {
+            "case_id": "CID0000000007",
+            "referral_code_id": 1,
+            "patient_id": "PCH00004",
+            "individual_id": "1",
+            "patient_name": "MS Dhoni",
+            "phone_number_1": "7598283836",
+            "age": "25",
+            "dob": "01-Oct-1996",
+            "gender": 1,
+            "doctor_id": "USD00001",
+            "doctor_name": "DR.Parthiban",
+            "doctor_phone_number": "-",
+            "hospital_name": "Parthiban Hospitals",
+            "classification": "North",
+            "created_on": "31-Mar-2021 07:09 PM"
+        },
+        {
+            "case_id": "CID0000000011",
+            "referral_code_id": 1,
+            "patient_id": "PCH000008",
+            "individual_id": "1204",
+            "patient_name": "Parthiban1234",
+            "phone_number_1": "22223333",
+            "age": "0",
+            "dob": "23-Dec-2020",
+            "gender": 1,
+            "doctor_id": "USD00001",
+            "doctor_name": "DR.ARUN KESAVAN",
+            "doctor_phone_number": "7401826091",
+            "hospital_name": "URSUGAR",
+            "classification": "south",
+            "created_on": "08-Apr-2021 06:25 PM"
+        }
+    ]
+}
+
+
+6)Get Communication Log Details:
+URL: https://referralapi.convenientcare.life/api/Case_Details/GetCaseDetails
+REQUEST:
+{
+    "dml_indicator": "CLD",
+    "referral_code_id": "1",
+    "case_id":"CID0000000002"
+}
+RESPONSE:
+{
+    "Table": [
+        {
+            "log_details_id": 6,
+            "log_notes": "aaaa",
+            "created_on": "31-Mar-2021 07:13 PM"
+        },
+        {
+            "log_details_id": 7,
+            "log_notes": "bbbb",
+            "created_on": "31-Mar-2021 07:13 PM"
+        }
+    ]
+}
+
+
+7) Add New Communication Log Detail:
+URL: https://referralapi.convenientcare.life/api/Case_Details/GetCaseDetails
+REQUEST:
+{
+    "dml_indicator": "LDIC",
+    "referral_code_id": "1",
+    "case_id":"CID0000000002",
+    "log_notes": "treatment given"
+}
+RESPONSE:
+{
+    "Table": [
+        {
+            "log_details_id": 6,
+            "log_notes": "aaaa",
+            "created_on": "31-Mar-2021 07:13 PM"
+        },
+        {
+            "log_details_id": 7,
+            "log_notes": "bbbb",
+            "created_on": "31-Mar-2021 07:13 PM"
+        },
+        {
+            "log_details_id": 25,
+            "log_notes": "treatment given",
+            "created_on": "22-Apr-2021 01:11 PM"
+        }
+    ]
+}
+
+
+8) Get Communication Schedule Activity:
+URL: https://referralapi.convenientcare.life/api/Case_Details/GetCaseDetails
+REQUEST: 
+{
+    "dml_indicator": "GADD",
+    "referral_code_id": "1",
+    "case_id":"CID0000000002"
+}
+RESPONSE:
+{
+    "Table": [
+        {
+            "activity_type": null,
+            "summary": "sadsad",
+            "attachment_file": "20210331191311148.jpg",
+            "due_date": "10-Mar-2021",
+            "assigned_to": "sadsad",
+            "notes": "sdsadsad",
+            "activity_status": null,
+            "created_on": "31-Mar-2021 07:14 PM"
+        },
+        {
+            "activity_type": null,
+            "summary": "sadsadsadsad",
+            "attachment_file": "20210331191339402.jpeg",
+            "due_date": "17-Mar-2021",
+            "assigned_to": "sadsadsa",
+            "notes": "sadsadsad",
+            "activity_status": null,
+            "created_on": "31-Mar-2021 07:14 PM"
+        }
+    ]
+}
