@@ -1,0 +1,23 @@
+{
+    "language": "English",
+    "@language":{
+        "description": "The current language"
+    },
+    "helloWorld": "Hello World!",
+    "@helloWorld": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "selected": "Selected language is",
+    "@helloWorld": {
+      "description": "The default language selected"
+    },
+    "greeting": "Welcome {username}",
+    "@greeting": {
+      "description": "A Welcome description",
+      "placeholders": {
+        "username": {
+          "type": "String"
+        }
+      }
+    }
+}

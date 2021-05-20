@@ -1,0 +1,6 @@
+{
+    "language": "हिंदी",
+    "helloWorld": "नमस्ते दुनिया",
+    "selected": "चयनित भाषा है",
+    "greeting": "नमस्कार {username}"
+}
