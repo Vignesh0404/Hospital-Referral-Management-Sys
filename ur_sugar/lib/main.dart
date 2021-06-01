@@ -25,15 +25,9 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               visualDensity: VisualDensity.adaptivePlatformDensity,
             ),
-            supportedLocales: L10n.all,
-            locale: provider.locale,
-            localizationsDelegates: [
-              AppLocalizations.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate
+            
             ],
             debugShowCheckedModeBanner: false,
-            home: TranslateTest());
+            home: Login());
       });
 }

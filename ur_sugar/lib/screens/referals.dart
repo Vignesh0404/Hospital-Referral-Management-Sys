@@ -33,7 +33,10 @@ class _ReferalsState extends State<Referals> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.grey.shade100,
-        drawer: DrawerWidget(referral_code_id: widget.referral_code_id),
+        drawer: DrawerWidget(
+          referral_code_id: widget.referral_code_id,
+          userid: widget.userid,
+        ),
         appBar: AppBar(
           iconTheme: IconThemeData(color: Colors.black),
           backgroundColor: Colors.grey.shade100,
@@ -108,6 +111,7 @@ class _ReferalsState extends State<Referals> {
                   return snapshot.hasData
                       ? OrdersList(
                           photos: snapshot.data,
+                          refCode: widget.referral_code_id,
                         )
                       : Center(child: CircularProgressIndicator());
                 },
@@ -119,8 +123,9 @@ class _ReferalsState extends State<Referals> {
 }
 
 class OrdersList extends StatefulWidget {
-  const OrdersList({Key key, this.photos}) : super(key: key);
+  const OrdersList({Key key, this.photos, this.refCode}) : super(key: key);
   final List<Table1> photos;
+  final int refCode;
 
   @override
   _OrdersListState createState() => _OrdersListState();
@@ -289,7 +294,134 @@ class _OrdersListState extends State<OrdersList> {
                                       size: 22,
                                     ),
                                     onPressed: () {
-                                      checkAlert(context, item.caseId);
+                                      showDialog(
+                                          context: context,
+                                          builder: (context) {
+                                            return Dialog(
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(7),
+                                              ),
+                                              child: Container(
+                                                height: 165,
+                                                width: double.infinity,
+                                                child: Padding(
+                                                  padding: const EdgeInsets.all(
+                                                      10.0),
+                                                  child: Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: <Widget>[
+                                                      SizedBox(height: 15),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsets.only(
+                                                                left: 15),
+                                                        child: Text(
+                                                          'ALERT',
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.black,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w900),
+                                                        ),
+                                                      ),
+                                                      SizedBox(
+                                                        height: 15,
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsets.only(
+                                                                left: 15,
+                                                                right: 15),
+                                                        child: Container(
+                                                          width:
+                                                              double.infinity,
+                                                          child: Text(
+                                                            'Are you sure you want to initiate the contact?',
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      Spacer(),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsets.only(
+                                                                right: 15.0),
+                                                        child: Row(
+                                                          children: <Widget>[
+                                                            Spacer(),
+                                                            GestureDetector(
+                                                              onTap: () {
+                                                                Navigator.of(
+                                                                        context)
+                                                                    .pop();
+                                                              },
+                                                              child: Text(
+                                                                'NO',
+                                                                style: TextStyle(
+                                                                    color: Colors
+                                                                        .red),
+                                                              ),
+                                                            ),
+                                                            SizedBox(
+                                                              width: 16,
+                                                            ),
+                                                            GestureDetector(
+                                                                onTap:
+                                                                    () async {
+                                                                  functionLoaderBox(
+                                                                      context);
+                                                                  Navigator.of(
+                                                                          context)
+                                                                      .pop();
+
+                                                                  http.Response
+                                                                      response =
+                                                                      await http.post(
+                                                                          Uri.parse(
+                                                                              'https://referralapi.convenientcare.life/api/Case_Details/GetCaseDetails'),
+                                                                          body: json.encode({
+                                                                            "dml_indicator":
+                                                                                "CSC",
+                                                                            "referral_code_id":
+                                                                                widget.refCode,
+                                                                            "case_id":
+                                                                                item.caseId,
+                                                                            "case_status":
+                                                                                "2"
+                                                                          }),
+                                                                          headers: {
+                                                                        "Content-Type":
+                                                                            "application/json"
+                                                                      });
+
+                                                                  Navigator.of(
+                                                                          context)
+                                                                      .pop();
+                                                                  print(response
+                                                                      .statusCode);
+                                                                  print(response
+                                                                      .body);
+                                                                },
+                                                                child: Text(
+                                                                  'YES',
+                                                                  style: TextStyle(
+                                                                      color: Colors
+                                                                          .green),
+                                                                ))
+                                                          ],
+                                                        ),
+                                                      ),
+                                                      SizedBox(height: 15)
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                          });
+
                                       setState(() {});
                                     }),
                               )

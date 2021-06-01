@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-Widget checkAlert(BuildContext context, String caseId) {
+Widget checkAlert(BuildContext context, String caseId, int refCode) {
   showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -60,6 +60,7 @@ Widget checkAlert(BuildContext context, String caseId) {
                         ),
                         GestureDetector(
                             onTap: () async {
+                              functionLoaderBox(context);
                               Navigator.of(context).pop();
 
                               http.Response response = await http.post(
@@ -67,7 +68,7 @@ Widget checkAlert(BuildContext context, String caseId) {
                                       'https://referralapi.convenientcare.life/api/Case_Details/GetCaseDetails'),
                                   body: json.encode({
                                     "dml_indicator": "CSC",
-                                    "referral_code_id": "1",
+                                    "referral_code_id": refCode,
                                     "case_id": caseId,
                                     "case_status": "2"
                                   }),
@@ -115,7 +116,7 @@ functionLoaderBox(BuildContext context) async {
             Theme(
               data: Theme.of(context).copyWith(accentColor: Colors.white),
               child: CircularProgressIndicator(
-                  strokeWidth: 4.0, backgroundColor: Color(0xFF8000F8)),
+                  strokeWidth: 4.0, backgroundColor: Color(0xFFD64652)),
             )
           ],
         ),

@@ -57,6 +57,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.3"
+  dependencies:
+    dependency: "direct main"
+    description:
+      name: dependencies
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.5"
+  disposables:
+    dependency: transitive
+    description:
+      name: disposables
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.2"
   dots_indicator:
     dependency: transitive
     description:
@@ -71,6 +85,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0"
+  file_picker:
+    dependency: "direct main"
+    description:
+      name: file_picker
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.2+2"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -81,11 +102,30 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_plugin_android_lifecycle:
+    dependency: transitive
+    description:
+      name: flutter_plugin_android_lifecycle
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.2"
   flutter_test:
     dependency: "direct dev"
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_web_plugins:
+    dependency: transitive
+    description: flutter
+    source: sdk
+    version: "0.0.0"
+  group_button:
+    dependency: "direct main"
+    description:
+      name: group_button
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.2"
   http:
     dependency: "direct main"
     description:
@@ -114,6 +154,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0"
+  js:
+    dependency: transitive
+    description:
+      name: js
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.6.3"
   matcher:
     dependency: transitive
     description:
@@ -149,6 +196,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.11.0"
+  plugin_platform_interface:
+    dependency: transitive
+    description:
+      name: plugin_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   provider:
     dependency: "direct main"
     description:
@@ -156,6 +210,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "5.0.0"
+  quiver:
+    dependency: transitive
+    description:
+      name: quiver
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.5"
   sa_v1_migration:
     dependency: transitive
     description:
@@ -217,6 +278,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.4.0"
+  syncfusion_flutter_core:
+    dependency: transitive
+    description:
+      name: syncfusion_flutter_core
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "19.1.65"
+  syncfusion_flutter_datepicker:
+    dependency: "direct main"
+    description:
+      name: syncfusion_flutter_datepicker
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "19.1.65-beta"
   term_glyph:
     dependency: transitive
     description:
@@ -247,4 +322,4 @@ packages:
     version: "2.1.0"
 sdks:
   dart: ">=2.12.0 <3.0.0"
-  flutter: ">=1.16.0"
+  flutter: ">=1.20.0"

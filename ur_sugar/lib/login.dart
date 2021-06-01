@@ -238,7 +238,7 @@ class _LoginState extends State<Login> {
               Theme(
                 data: Theme.of(context).copyWith(accentColor: Colors.white),
                 child: CircularProgressIndicator(
-                    strokeWidth: 4.0, backgroundColor: Color(0xFF8000F8)),
+                    strokeWidth: 4.0, backgroundColor: Color(0xFFCC2F44)),
               )
             ],
           ),

@@ -112,7 +112,6 @@ class SecondPage extends StatefulWidget {
 class _SecondPageState extends State<SecondPage> {
   @override
   Widget build(BuildContext context) {
-    final locale = Localizations.localeOf(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,

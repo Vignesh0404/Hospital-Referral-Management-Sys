@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:ur_sugar/screens/admittedPatients.dart';
 import 'package:ur_sugar/screens/communicationProgress.dart';
+import 'package:ur_sugar/screens/dischargedPatients.dart';
 import 'package:ur_sugar/screens/referals.dart';
 
 class DrawerWidget extends StatefulWidget {
-  DrawerWidget({Key key, this.referral_code_id}) : super(key: key);
+  DrawerWidget({Key key, this.referral_code_id, this.userid}) : super(key: key);
   final int referral_code_id;
+  final int userid;
 
   @override
   _DrawerWidgetState createState() => _DrawerWidgetState();
@@ -59,7 +62,8 @@ class _DrawerWidgetState extends State<DrawerWidget> {
             onTap: () {
               Navigator.of(context).push(new MaterialPageRoute(
                   builder: (BuildContext context) => new CommunicationProgress(
-                      referral_code_id: widget.referral_code_id)));
+                      referral_code_id: widget.referral_code_id,
+                      userId: widget.userid)));
             },
           ),
           ListTile(
@@ -70,7 +74,13 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
             ),
             subtitle: Text('check out your admitted patients here!'),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(new MaterialPageRoute(
+                  builder: (BuildContext context) => new AdmittedPatients(
+                        referral_code_id: widget.referral_code_id,
+                        user_id: widget.userid,
+                      )));
+            },
           ),
           ListTile(
             trailing:
@@ -80,7 +90,13 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
             ),
             subtitle: Text('Your Lost Patients here!'),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(new MaterialPageRoute(
+                  builder: (BuildContext context) => new DischargedPatients(
+                        referral_code_id: widget.referral_code_id,
+                        user_id: widget.userid,
+                      )));
+            },
           ),
           ListTile(
             trailing:

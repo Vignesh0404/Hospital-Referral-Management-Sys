@@ -6,9 +6,11 @@ import 'package:ur_sugar/apis/logs-api.dart';
 import 'package:ur_sugar/utils/nowLoading.dart';
 
 class LogDetails extends StatefulWidget {
-  const LogDetails({Key key, this.caseId}) : super(key: key);
+  const LogDetails({Key key, this.caseId, this.refCode, this.userId})
+      : super(key: key);
   final String caseId;
-
+  final int refCode;
+  final int userId;
   @override
   _LogDetailsState createState() => _LogDetailsState();
 }
@@ -21,11 +23,16 @@ class _LogDetailsState extends State<LogDetails> {
       backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
         elevation: 0.0,
-        backgroundColor: Color(0xFF8218E6),
+        backgroundColor: Colors.grey.shade100,
         centerTitle: true,
+        leading: IconButton(
+            icon: Icon(Icons.arrow_back, color: Colors.black),
+            onPressed: () {
+              Navigator.of(context).pop();
+            }),
         title: Text(
           widget.caseId,
-          style: TextStyle(),
+          style: TextStyle(color: Colors.black),
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
@@ -99,7 +106,7 @@ class _LogDetailsState extends State<LogDetails> {
                                     'https://referralapi.convenientcare.life/api/Case_Details/GetCaseDetails'),
                                 body: json.encode({
                                   "dml_indicator": "LDIC",
-                                  "referral_code_id": "1",
+                                  "referral_code_id": widget.refCode,
                                   "case_id": widget.caseId,
                                   "log_notes": logNote.text
                                 }),
@@ -116,10 +123,12 @@ class _LogDetailsState extends State<LogDetails> {
                                 color: Colors.red.shade300,
                                 borderRadius: BorderRadius.circular(10)),
                             child: Padding(
-                              padding: const EdgeInsets.all(16.0),
+                              padding: const EdgeInsets.only(
+                                  left: 16.0, right: 16, top: 10, bottom: 10),
                               child: Text(
                                 'ADD LOG',
-                                style: TextStyle(color: Colors.white),
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 18),
                               ),
                             ),
                           ),

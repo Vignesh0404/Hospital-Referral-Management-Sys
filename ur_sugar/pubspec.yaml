@@ -36,6 +36,10 @@ dependencies:
   date_picker_timeline: ^1.2.3
   http:
   provider: ^5.0.0
+  group_button: ^2.1.2
+  file_picker: ^3.0.2+2
+  dependencies:
+  syncfusion_flutter_datepicker: ^19.1.65-beta
   #easy_localization: ^3.0.0
 
 dev_dependencies:
