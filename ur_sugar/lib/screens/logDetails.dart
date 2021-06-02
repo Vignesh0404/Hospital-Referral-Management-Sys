@@ -6,9 +6,10 @@ import 'package:ur_sugar/apis/logs-api.dart';
 import 'package:ur_sugar/utils/nowLoading.dart';
 
 class LogDetails extends StatefulWidget {
-  const LogDetails({Key key, this.caseId, this.refCode, this.userId})
+  const LogDetails({Key key, this.caseId, this.refCode, this.userId, this.name})
       : super(key: key);
   final String caseId;
+  final String name;
   final int refCode;
   final int userId;
   @override
@@ -31,8 +32,8 @@ class _LogDetailsState extends State<LogDetails> {
               Navigator.of(context).pop();
             }),
         title: Text(
-          widget.caseId,
-          style: TextStyle(color: Colors.black),
+          widget.name,
+          style: TextStyle(color: Colors.black, fontFamily: 'DmSans'),
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
@@ -40,12 +41,9 @@ class _LogDetailsState extends State<LogDetails> {
           showModalBottomSheet<void>(
             context: context,
             builder: (BuildContext context) {
-              return Container(
-                height: 220,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                ),
-                child: SingleChildScrollView(
+              return SingleChildScrollView(
+                child: Container(
+                  height: MediaQuery.of(context).size.height / 4,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
@@ -55,13 +53,14 @@ class _LogDetailsState extends State<LogDetails> {
                             Navigator.of(context).pop();
                           }),
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(5.0),
                         child: Align(
                           alignment: Alignment.topLeft,
                           child: Text(
                             'Log Patient',
                             style: TextStyle(
                                 fontWeight: FontWeight.w700,
+                                fontFamily: 'DmSans',
                                 fontSize: 13,
                                 color: Colors.black),
                           ),
@@ -90,6 +89,7 @@ class _LogDetailsState extends State<LogDetails> {
                               hintText: "Log Note"),
                           style: TextStyle(
                             fontSize: 13,
+                            fontFamily: 'DmSans',
                             color: Colors.black,
                           ),
                         ),
@@ -128,7 +128,9 @@ class _LogDetailsState extends State<LogDetails> {
                               child: Text(
                                 'ADD LOG',
                                 style: TextStyle(
-                                    color: Colors.white, fontSize: 18),
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontFamily: 'DmSans'),
                               ),
                             ),
                           ),
@@ -144,7 +146,10 @@ class _LogDetailsState extends State<LogDetails> {
             },
           );
         },
-        label: Text('Add Log'),
+        label: Text(
+          'Add Log',
+          style: TextStyle(fontFamily: 'DmSans'),
+        ),
         icon: Icon(Icons.add_outlined),
         backgroundColor: Colors.lightGreen.shade300,
       ),
@@ -159,11 +164,17 @@ class _LogDetailsState extends State<LogDetails> {
               children: [
                 Text(
                   'Log Details,',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      fontFamily: 'DmSans'),
                 ),
                 Text(
                   'check or add to your logs!',
-                  style: TextStyle(fontWeight: FontWeight.w400, fontSize: 12),
+                  style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 12,
+                      fontFamily: 'DmSans'),
                 ),
               ],
             ),
@@ -199,62 +210,77 @@ class LogInfo extends StatelessWidget {
         itemBuilder: (context, index) {
           Table3 item = logs[index];
           return Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(15)),
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'DETAILS:',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w700, fontSize: 14),
-                        ),
-                        SizedBox(
-                          height: 2,
-                        ),
-                        Text(
-                          item.logNotes,
-                          style: TextStyle(
-                              fontWeight: FontWeight.w300,
-                              fontSize: 15,
-                              color: Colors.grey.shade700),
-                        ),
-                        SizedBox(height: 5),
-                        Text(
-                          'DATE:',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w700, fontSize: 14),
-                        ),
-                        SizedBox(
-                          height: 2,
-                        ),
-                        Text(
-                          item.createdOn,
-                          style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 15,
-                              color: Colors.lightGreen.shade700),
-                        )
-                      ],
+              padding: const EdgeInsets.all(10.0),
+              child: Material(
+                elevation: 4,
+                child: Container(
+                  height: 90,
+                  width: double.infinity,
+                  color: Colors.lightGreen.shade300,
+                  child: Container(
+                    color: Colors.white,
+                    margin: EdgeInsets.only(left: 6),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Note - Details - ' + item.logDetailsId.toString(),
+                            style: TextStyle(
+                                fontFamily: 'DmSans',
+                                fontWeight: FontWeight.w400,
+                                fontSize: 11),
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Text(
+                            item.logNotes,
+                            style: TextStyle(
+                                fontFamily: 'DmSans',
+                                fontWeight: FontWeight.w600,
+                                fontSize: 15),
+                          ),
+                          Spacer(),
+                          Container(
+                            width: 220,
+                            decoration: BoxDecoration(
+                                color: Colors.lightGreen.shade100),
+                            child: Padding(
+                              padding: const EdgeInsets.all(5.0),
+                              child: Row(
+                                children: [
+                                  Text(
+                                    'Created Date - ',
+                                    style: TextStyle(
+                                        fontFamily: 'DmSans',
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 11,
+                                        color: Colors.grey.shade700),
+                                  ),
+                                  Text(
+                                    item.createdOn,
+                                    style: TextStyle(
+                                      fontFamily: 'DmSans',
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 11,
+                                      color: Colors.green.shade900,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                        ],
+                      ),
                     ),
-                    Text(
-                      '#' + item.logDetailsId.toString(),
-                      style:
-                          TextStyle(fontWeight: FontWeight.w700, fontSize: 14),
-                    )
-                  ],
+                  ),
                 ),
-              ),
-            ),
-          );
+              ));
         });
   }
 }

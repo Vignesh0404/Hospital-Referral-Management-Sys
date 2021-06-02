@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:flutter/material.dart';
@@ -8,6 +9,7 @@ import 'package:ur_sugar/screens/previewOrders.dart';
 import 'package:ur_sugar/utils/drawer.dart';
 import 'package:ur_sugar/utils/nowLoading.dart';
 import 'package:date_picker_timeline/date_picker_timeline.dart';
+import 'package:ur_sugar/utils/referalModal.dart';
 
 class Referals extends StatefulWidget {
   const Referals(
@@ -45,7 +47,10 @@ class _ReferalsState extends State<Referals> {
           title: Text(
             'DASHBOARD',
             style: TextStyle(
-                fontWeight: FontWeight.bold, fontSize: 17, color: Colors.black),
+                fontWeight: FontWeight.bold,
+                fontSize: 17,
+                color: Colors.black,
+                fontFamily: 'DmSans'),
           ),
         ),
         body: SafeArea(
@@ -64,20 +69,26 @@ class _ReferalsState extends State<Referals> {
                           '(' +
                           widget.role +
                           ')',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                      style: TextStyle(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 16,
+                          fontFamily: 'DmSans'),
                     ),
                     Text(
                       'Check out your schedule here,',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w400, fontSize: 12),
+                      style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 12,
+                          fontFamily: 'DmSans'),
                     ),
                   ],
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                    left: 16.0, right: 16, top: 8, bottom: 8),
+                  left: 16.0,
+                  right: 16,
+                ),
                 child: DatePicker(
                   DateTime.now(),
                   initialSelectedDate: DateTime.now(),
@@ -95,18 +106,12 @@ class _ReferalsState extends State<Referals> {
                 ),
               ),
               SizedBox(
-                height: 10,
+                height: 5,
               ),
               FutureBuilder<List<Table1>>(
                 future: fetchPhotos(http.Client(), widget.referral_code_id),
                 builder: (context, snapshot) {
                   if (snapshot.hasError) print(snapshot.error);
-                  // if (snapshot.hasData == true) {
-                  //   return Padding(
-                  //     padding: const EdgeInsets.only(top: 38.0),
-                  //     child: Center(child: Text('no schedules left..')),
-                  //   );
-                  // }
 
                   return snapshot.hasData
                       ? OrdersList(
@@ -154,15 +159,16 @@ class _OrdersListState extends State<OrdersList> {
                   builder: (BuildContext context) => new PreviewOrder()));
             },
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(10.0),
               child: Material(
-                color: Colors.white,
-                elevation: 2,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                elevation: 4,
+                child: Container(
+                  height: 195,
+                  width: double.infinity,
+                  color: Colors.blueGrey,
                   child: Container(
-                    width: double.infinity,
                     color: Colors.white,
+                    margin: EdgeInsets.only(left: 6),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Column(
@@ -171,261 +177,194 @@ class _OrdersListState extends State<OrdersList> {
                           Row(
                             children: [
                               Text(
-                                item.patientName ?? 'null',
+                                '#' + item.caseId,
                                 style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 16),
+                                    fontFamily: 'DmSans',
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 9),
                               ),
                               Spacer(),
                               Container(
+                                height: 30,
+                                width: 30,
                                 decoration: BoxDecoration(
-                                    color: Colors.pink.shade400,
-                                    borderRadius: BorderRadius.circular(25)),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Center(
-                                    child: Text(
-                                      item.classification ?? 'null',
-                                      style: TextStyle(color: Colors.white),
+                                    shape: BoxShape.circle,
+                                    color: Colors.blueGrey.shade100),
+                                child: IconButton(
+                                    icon: Icon(
+                                      Icons.more_vert,
+                                      color: Colors.blueGrey.shade800,
+                                      size: 16,
                                     ),
-                                  ),
-                                ),
+                                    onPressed: () {
+                                      showModalBottomSheet(
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.only(
+                                                topLeft: Radius.circular(10.0),
+                                                topRight: Radius.circular(10)),
+                                          ),
+                                          context: context,
+                                          builder: (BuildContext context) {
+                                            return new RefModalPopup(
+                                                refId: widget.refCode,
+                                                userId: 1,
+                                                namePatient: item.patientName,
+                                                age: item.age,
+                                                docId: item.doctorId,
+                                                casedId: item.caseId,
+                                                patientId: item.patientId,
+                                                doctorName: item.doctorName,
+                                                gender: item.gender);
+                                          });
+                                    }),
                               )
                             ],
                           ),
                           Text(
-                            '#' + item.caseId ?? 'null',
+                            item.patientName,
                             style: TextStyle(
-                                fontSize: 9,
-                                fontWeight: FontWeight.w400,
-                                color: Colors.grey.shade400),
-                          ),
-                          SizedBox(
-                            height: 10,
+                                fontFamily: 'DmSans',
+                                fontWeight: FontWeight.w800,
+                                fontSize: 16),
                           ),
                           Row(
                             children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Doctor Name',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w400,
-                                        color: Colors.grey.shade400),
-                                  ),
-                                  Text(
-                                    item.doctorName ?? 'null',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w400,
-                                        color: Colors.grey.shade800),
-                                  ),
-                                ],
-                              ),
+                              (item.gender == "1")
+                                  ? Text(
+                                      item.age + ' yrs/Male',
+                                      style: TextStyle(
+                                          fontFamily: 'DmSans',
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 11,
+                                          color: Colors.grey.shade500),
+                                    )
+                                  : Text(
+                                      item.age + ' yrs/Female',
+                                      style: TextStyle(
+                                          fontFamily: 'DmSans',
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 11,
+                                          color: Colors.grey.shade500),
+                                    ),
                               Spacer(),
+                              Text(
+                                item.phoneNumber1 ?? 'not registered',
+                                style: TextStyle(
+                                    fontFamily: 'DmSans',
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 11,
+                                    color: Colors.grey.shade500),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.circle,
+                                color: Colors.green,
+                                size: 8,
+                              ),
                               SizedBox(
                                 width: 5,
                               ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Text(
-                                    'Doctor No',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w400,
-                                        color: Colors.grey.shade400),
-                                  ),
-                                  Text(
-                                    item.doctorPhoneNumber ?? 'null',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w400,
-                                        color: Colors.grey.shade800),
-                                  ),
-                                ],
+                              Text(
+                                item.doctorName,
+                                style: TextStyle(
+                                    fontFamily: 'DmSans',
+                                    fontWeight: FontWeight.w800,
+                                    fontSize: 16),
                               ),
                             ],
                           ),
-                          SizedBox(height: 5),
-                          Divider(
-                            thickness: 1.5,
-                            color: Colors.grey.shade300,
-                          ),
-                          SizedBox(height: 5),
                           Row(
                             children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Referred Date',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.w700),
-                                  ),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                  Text(
-                                    item.createdOn ?? 'null',
-                                    style: TextStyle(color: Colors.lightGreen),
-                                  ),
-                                ],
+                              Text(
+                                item.hospitalName,
+                                style: TextStyle(
+                                    fontFamily: 'DmSans',
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 11,
+                                    color: Colors.grey.shade500),
                               ),
                               Spacer(),
-                              Container(
-                                decoration: BoxDecoration(
-                                    color: Colors.lightBlue.shade100,
-                                    borderRadius: BorderRadius.circular(30)),
-                                child: IconButton(
-                                    icon: Icon(
-                                      Icons.message_outlined,
-                                      size: 22,
-                                    ),
-                                    onPressed: () {}),
+                              Text(
+                                item.doctorPhoneNumber ?? 'not registered',
+                                style: TextStyle(
+                                    fontFamily: 'DmSans',
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 11,
+                                    color: Colors.grey.shade500),
                               ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Container(
-                                decoration: BoxDecoration(
-                                    color: Colors.lightBlue.shade100,
-                                    borderRadius: BorderRadius.circular(30)),
-                                child: IconButton(
-                                    icon: Icon(
-                                      Icons.arrow_forward,
-                                      size: 22,
-                                    ),
-                                    onPressed: () {
-                                      showDialog(
-                                          context: context,
-                                          builder: (context) {
-                                            return Dialog(
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(7),
-                                              ),
-                                              child: Container(
-                                                height: 165,
-                                                width: double.infinity,
-                                                child: Padding(
-                                                  padding: const EdgeInsets.all(
-                                                      10.0),
-                                                  child: Column(
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: <Widget>[
-                                                      SizedBox(height: 15),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.only(
-                                                                left: 15),
-                                                        child: Text(
-                                                          'ALERT',
-                                                          style: TextStyle(
-                                                              color:
-                                                                  Colors.black,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w900),
-                                                        ),
-                                                      ),
-                                                      SizedBox(
-                                                        height: 15,
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.only(
-                                                                left: 15,
-                                                                right: 15),
-                                                        child: Container(
-                                                          width:
-                                                              double.infinity,
-                                                          child: Text(
-                                                            'Are you sure you want to initiate the contact?',
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Spacer(),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.only(
-                                                                right: 15.0),
-                                                        child: Row(
-                                                          children: <Widget>[
-                                                            Spacer(),
-                                                            GestureDetector(
-                                                              onTap: () {
-                                                                Navigator.of(
-                                                                        context)
-                                                                    .pop();
-                                                              },
-                                                              child: Text(
-                                                                'NO',
-                                                                style: TextStyle(
-                                                                    color: Colors
-                                                                        .red),
-                                                              ),
-                                                            ),
-                                                            SizedBox(
-                                                              width: 16,
-                                                            ),
-                                                            GestureDetector(
-                                                                onTap:
-                                                                    () async {
-                                                                  functionLoaderBox(
-                                                                      context);
-                                                                  Navigator.of(
-                                                                          context)
-                                                                      .pop();
-
-                                                                  http.Response
-                                                                      response =
-                                                                      await http.post(
-                                                                          Uri.parse(
-                                                                              'https://referralapi.convenientcare.life/api/Case_Details/GetCaseDetails'),
-                                                                          body: json.encode({
-                                                                            "dml_indicator":
-                                                                                "CSC",
-                                                                            "referral_code_id":
-                                                                                widget.refCode,
-                                                                            "case_id":
-                                                                                item.caseId,
-                                                                            "case_status":
-                                                                                "2"
-                                                                          }),
-                                                                          headers: {
-                                                                        "Content-Type":
-                                                                            "application/json"
-                                                                      });
-
-                                                                  Navigator.of(
-                                                                          context)
-                                                                      .pop();
-                                                                  print(response
-                                                                      .statusCode);
-                                                                  print(response
-                                                                      .body);
-                                                                },
-                                                                child: Text(
-                                                                  'YES',
-                                                                  style: TextStyle(
-                                                                      color: Colors
-                                                                          .green),
-                                                                ))
-                                                          ],
-                                                        ),
-                                                      ),
-                                                      SizedBox(height: 15)
-                                                    ],
-                                                  ),
-                                                ),
-                                              ),
-                                            );
-                                          });
-
-                                      setState(() {});
-                                    }),
-                              )
                             ],
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                'magic internal doctor',
+                                style: TextStyle(
+                                    fontFamily: 'DmSans',
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 11,
+                                    color: Colors.grey.shade500),
+                              ),
+                              Spacer(),
+                              Text(
+                                item.classification ?? 'null',
+                                style: TextStyle(
+                                    fontFamily: 'DmSans',
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 11,
+                                    color: Colors.lightBlue.shade500),
+                              ),
+                            ],
+                          ),
+                          Spacer(),
+                          Container(
+                            width: 220,
+                            decoration:
+                                BoxDecoration(color: Colors.blueGrey.shade200),
+                            child: Padding(
+                              padding: const EdgeInsets.all(5.0),
+                              child: Row(
+                                children: [
+                                  Text(
+                                    'Referred Date - ',
+                                    style: TextStyle(
+                                        fontFamily: 'DmSans',
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 11,
+                                        color: Colors.white),
+                                  ),
+                                  Text(
+                                    item.createdOn,
+                                    style: TextStyle(
+                                      fontFamily: 'DmSans',
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 11,
+                                      color: Colors.blueGrey.shade800,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Text(
+                            'first referral for this patient',
+                            style: TextStyle(
+                                fontStyle: FontStyle.italic,
+                                fontFamily: 'DmSans',
+                                fontWeight: FontWeight.w400,
+                                fontSize: 11,
+                                color: Colors.grey.shade600),
                           )
                         ],
                       ),
@@ -439,75 +378,74 @@ class _OrdersListState extends State<OrdersList> {
     );
   }
 }
+/* 
+ Container(
+                                  decoration: BoxDecoration(
+                                      color: Colors.lightBlue.shade100,
+                                      borderRadius: BorderRadius.circular(30)),
+                                  child: IconButton(
+                                      icon: Icon(
+                                        Icons.arrow_forward,
+                                        size: 22,
+                                      ),
+                                      onPressed: () async {
+                                        functionLoaderBox(context);
+                                        Navigator.of(context).pop();
 
-Widget notescontainer(color, String name, String img) {
-  return Padding(
-    padding: const EdgeInsets.all(16.0),
-    child: Container(
-      height: 100,
-      decoration: BoxDecoration(
-        border: Border.all(color: color),
-        color: Colors.grey.shade50,
-        // borderRadius: BorderRadius.circular(20),
-      ),
-      child: Row(
-        children: [
-          SizedBox(
-            width: 5,
-          ),
-          CircleAvatar(
-            backgroundImage: AssetImage(
-              img,
-            ),
-            minRadius: 30,
-            backgroundColor: color,
-          ),
-          SizedBox(
-            width: 13,
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                name,
-                style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w800,
-                    fontSize: 15),
-              ),
-              Text('Dr. xyz'),
-              Text(
-                'Crocin, 10gm (20x)',
-                style: TextStyle(
-                    color: Colors.grey.shade900,
-                    fontWeight: FontWeight.w400,
-                    fontSize: 11),
-              ),
-              SizedBox(
-                height: 3,
-              ),
-              Text(
-                'Payment Status: done',
-                style: TextStyle(
-                    color: Colors.grey.shade500,
-                    fontWeight: FontWeight.w400,
-                    fontSize: 11),
-              ),
-            ],
-          ),
-          Spacer(),
-          IconButton(
-              icon: Icon(
-                Icons.arrow_forward_ios_outlined,
-                color: Colors.black,
-                size: 20,
-              ),
-              onPressed: null)
-        ],
-      ),
-    ),
-  );
-}
+                                        http.Response response = await http.post(
+                                            Uri.parse(
+                                                'https://referralapi.convenientcare.life/api/Case_Details/GetCaseDetails'),
+                                            body: json.encode({
+                                              "dml_indicator": "CSC",
+                                              "referral_code_id":
+                                                  widget.refCode,
+                                              "case_id": item.caseId,
+                                              "case_status": "2"
+                                            }),
+                                            headers: {
+                                              "Content-Type": "application/json"
+                                            });
+                                        print(response.statusCode);
+                                        print(response.body);
+                                        setState(() {});
+                                        showDialog(
+                                            context: context,
+                                            builder: (context) {
+                                              return AlertDialog(
+                                                content: Container(
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceEvenly,
+                                                    children: [
+                                                      Text(
+                                                        'Contact Initiated Successfully',
+                                                        style: TextStyle(
+                                                          fontSize: 13,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          color: Colors.black,
+                                                          fontFamily: 'DmSans',
+                                                        ),
+                                                      ),
+                                                      Theme(
+                                                          data: Theme.of(
+                                                                  context)
+                                                              .copyWith(
+                                                                  accentColor:
+                                                                      Colors
+                                                                          .white),
+                                                          child: Icon(
+                                                            Icons
+                                                                .verified_outlined,
+                                                            color: Color(
+                                                                0xFF46D66A),
+                                                          ))
+                                                    ],
+                                                  ),
+                                                ),
+                                              );
+                                            });
+                                      }))
+
+*/

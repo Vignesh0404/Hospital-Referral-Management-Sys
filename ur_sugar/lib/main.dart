@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:ur_sugar/localizationsTest/provider.dart';
 import 'package:ur_sugar/login.dart';
 import 'package:ur_sugar/onBoardingScreen.dart';
+import 'package:ur_sugar/screens/cardUITest.dart';
 import 'package:ur_sugar/utils/botNav.dart';
 import 'package:ur_sugar/utils/splash.dart';
 import 'localizationsTest/l10n.dart';
@@ -25,8 +26,6 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               visualDensity: VisualDensity.adaptivePlatformDensity,
             ),
-            
-            ],
             debugShowCheckedModeBanner: false,
             home: Login());
       });

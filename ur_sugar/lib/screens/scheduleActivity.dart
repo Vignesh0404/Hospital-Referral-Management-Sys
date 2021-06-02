@@ -11,11 +11,13 @@ import 'package:group_button/group_button.dart';
 import 'package:file_picker/file_picker.dart';
 
 class ScheduleActivity extends StatefulWidget {
-  const ScheduleActivity({Key key, this.caseId, this.refCode, this.userId})
+  const ScheduleActivity(
+      {Key key, this.caseId, this.refCode, this.userId, this.name})
       : super(key: key);
   final String caseId;
   final int refCode;
   final int userId;
+  final String name;
 
   @override
   _ScheduleActivityState createState() => _ScheduleActivityState();
@@ -68,13 +70,18 @@ class _ScheduleActivityState extends State<ScheduleActivity> {
               Navigator.of(context).pop();
             }),
         title: Text(
-          widget.caseId,
-          style: TextStyle(color: Colors.black),
+          widget.name,
+          style: TextStyle(color: Colors.black, fontFamily: 'DmSans'),
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           showModalBottomSheet<void>(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(10.0),
+                  topRight: Radius.circular(10)),
+            ),
             context: context,
             builder: (BuildContext context) {
               return Container(
@@ -100,6 +107,7 @@ class _ScheduleActivityState extends State<ScheduleActivity> {
                             style: TextStyle(
                                 fontWeight: FontWeight.w700,
                                 fontSize: 13,
+                                fontFamily: 'DmSans',
                                 color: Colors.black),
                           ),
                         ),
@@ -127,6 +135,7 @@ class _ScheduleActivityState extends State<ScheduleActivity> {
                               hintText: "Summary"),
                           style: TextStyle(
                             fontSize: 13,
+                            fontFamily: 'DmSans',
                             color: Colors.black,
                           ),
                         ),
@@ -139,6 +148,7 @@ class _ScheduleActivityState extends State<ScheduleActivity> {
                           child: Text(
                             'Assigned to',
                             style: TextStyle(
+                                fontFamily: 'DmSans',
                                 fontWeight: FontWeight.w700,
                                 fontSize: 13,
                                 color: Colors.black),
@@ -168,6 +178,7 @@ class _ScheduleActivityState extends State<ScheduleActivity> {
                               hintText: "Assigned to"),
                           style: TextStyle(
                             fontSize: 13,
+                            fontFamily: 'DmSans',
                             color: Colors.black,
                           ),
                         ),
@@ -182,6 +193,7 @@ class _ScheduleActivityState extends State<ScheduleActivity> {
                             style: TextStyle(
                                 fontWeight: FontWeight.w700,
                                 fontSize: 13,
+                                fontFamily: 'DmSans',
                                 color: Colors.black),
                           ),
                         ),
@@ -209,6 +221,7 @@ class _ScheduleActivityState extends State<ScheduleActivity> {
                               hintText: "Notes"),
                           style: TextStyle(
                             fontSize: 13,
+                            fontFamily: 'DmSans',
                             color: Colors.black,
                           ),
                         ),
@@ -224,6 +237,7 @@ class _ScheduleActivityState extends State<ScheduleActivity> {
                                 'Date Of Admission',
                                 style: TextStyle(
                                     fontWeight: FontWeight.w700,
+                                    fontFamily: 'DmSans',
                                     fontSize: 13,
                                     color: Colors.black),
                               ),
@@ -301,6 +315,7 @@ class _ScheduleActivityState extends State<ScheduleActivity> {
                             style: TextStyle(
                                 fontWeight: FontWeight.w700,
                                 fontSize: 13,
+                                fontFamily: 'DmSans',
                                 color: Colors.black),
                           ),
                         ),
@@ -328,6 +343,7 @@ class _ScheduleActivityState extends State<ScheduleActivity> {
                             'Activity Status',
                             style: TextStyle(
                                 fontWeight: FontWeight.w700,
+                                fontFamily: 'DmSans',
                                 fontSize: 13,
                                 color: Colors.black),
                           ),
@@ -358,6 +374,7 @@ class _ScheduleActivityState extends State<ScheduleActivity> {
                             style: TextStyle(
                                 fontWeight: FontWeight.w700,
                                 fontSize: 13,
+                                fontFamily: 'DmSans',
                                 color: Colors.black),
                           ),
                         ),
@@ -384,7 +401,9 @@ class _ScheduleActivityState extends State<ScheduleActivity> {
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text(
                                     'Choose File',
-                                    style: TextStyle(color: Colors.white),
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontFamily: 'DmSans'),
                                   ),
                                 ),
                               ),
@@ -392,7 +411,11 @@ class _ScheduleActivityState extends State<ScheduleActivity> {
                             SizedBox(
                               width: 5,
                             ),
-                            Text('No file chosen')
+                            Text(
+                              'No file chosen',
+                              style: TextStyle(
+                                  color: Colors.black, fontFamily: 'DmSans'),
+                            )
                           ],
                         ),
                       ),
@@ -438,7 +461,9 @@ class _ScheduleActivityState extends State<ScheduleActivity> {
                               child: Text(
                                 'SUBMIT',
                                 style: TextStyle(
-                                    color: Colors.white, fontSize: 18),
+                                    fontFamily: 'DmSans',
+                                    color: Colors.white,
+                                    fontSize: 18),
                               ),
                             ),
                           ),
@@ -454,7 +479,10 @@ class _ScheduleActivityState extends State<ScheduleActivity> {
             },
           );
         },
-        label: Text('Add Schedule'),
+        label: Text(
+          'Add Schedule',
+          style: TextStyle(fontFamily: 'DmSans'),
+        ),
         icon: Icon(Icons.add_outlined),
         backgroundColor: Colors.lightGreen.shade300,
       ),
@@ -470,11 +498,17 @@ class _ScheduleActivityState extends State<ScheduleActivity> {
                 children: [
                   Text(
                     'Schedule Activity,',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                        fontFamily: 'DmSans'),
                   ),
                   Text(
                     'check or add to your schedules!',
-                    style: TextStyle(fontWeight: FontWeight.w400, fontSize: 12),
+                    style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 12,
+                        fontFamily: 'DmSans'),
                   ),
                 ],
               ),
@@ -515,14 +549,13 @@ class SchActiList extends StatelessWidget {
             child: Container(
               width: double.infinity,
               decoration: BoxDecoration(
-                color: Colors.pink.shade700,
-                borderRadius: BorderRadius.circular(15),
+                color: Colors.lightGreen.shade300,
               ),
               child: Container(
                 margin: EdgeInsets.only(left: 5),
                 decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(7)),
+                  color: Colors.white,
+                ),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
@@ -535,28 +568,56 @@ class SchActiList extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Notes',
+                                'Assigned To',
                                 style: TextStyle(
+                                    fontFamily: 'DmSans',
                                     fontWeight: FontWeight.w400,
                                     color: Colors.grey.shade400),
+                              ),
+                              Text(
+                                item.assignedTo,
+                                style: TextStyle(
+                                    fontFamily: 'DmSans',
+                                    color: Colors.blueGrey.shade900,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 14),
                               ),
                               SizedBox(
                                 height: 5,
                               ),
-                              Text(item.notes),
+                              Text(
+                                'Notes',
+                                style: TextStyle(
+                                    fontFamily: 'DmSans',
+                                    fontWeight: FontWeight.w400,
+                                    color: Colors.grey.shade400),
+                              ),
+                              Text(
+                                item.notes,
+                                style: TextStyle(
+                                    fontFamily: 'DmSans',
+                                    color: Colors.blueGrey.shade900,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 14),
+                              ),
                               SizedBox(
-                                height: 10,
+                                height: 5,
                               ),
                               Text(
                                 'Summary',
                                 style: TextStyle(
                                     fontWeight: FontWeight.w400,
+                                    fontFamily: 'DmSans',
                                     color: Colors.grey.shade400),
                               ),
-                              SizedBox(
-                                height: 5,
+                              Text(
+                                item.summary,
+                                style: TextStyle(
+                                    fontFamily: 'DmSans',
+                                    color: Colors.blueGrey.shade900,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 14),
                               ),
-                              Text(item.summary),
                               SizedBox(
                                 height: 10,
                               ),
@@ -564,20 +625,58 @@ class SchActiList extends StatelessWidget {
                                 children: [
                                   Container(
                                     decoration: BoxDecoration(
-                                        color: Colors.lightBlue.shade200,
-                                        borderRadius:
-                                            BorderRadius.circular(15)),
+                                      color: Colors.lightBlue.shade200,
+                                    ),
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: item.activityStatus == null
-                                          ? Text('Activity Status:' + 'null')
-                                          : Text(
-                                              'Activity Status: ' +
+                                          ? Row(
+                                              children: [
+                                                Text(
+                                                  'Activity Status: ',
+                                                  style: TextStyle(
+                                                      fontFamily: 'DmSans',
+                                                      color: Colors
+                                                          .blueGrey.shade500,
+                                                      fontWeight:
+                                                          FontWeight.w400,
+                                                      fontSize: 11),
+                                                ),
+                                                Text(
+                                                  'null',
+                                                  style: TextStyle(
+                                                      fontFamily: 'DmSans',
+                                                      color: Colors
+                                                          .blueGrey.shade900,
+                                                      fontWeight:
+                                                          FontWeight.w800,
+                                                      fontSize: 11),
+                                                ),
+                                              ],
+                                            )
+                                          : Row(
+                                              children: [
+                                                Text(
+                                                  'Activity Status: ',
+                                                  style: TextStyle(
+                                                      fontFamily: 'DmSans',
+                                                      color: Colors
+                                                          .blueGrey.shade500,
+                                                      fontWeight:
+                                                          FontWeight.w400,
+                                                      fontSize: 11),
+                                                ),
+                                                Text(
                                                   item.activityStatus,
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontWeight: FontWeight.w400,
-                                                  fontSize: 11),
+                                                  style: TextStyle(
+                                                      fontFamily: 'DmSans',
+                                                      color: Colors
+                                                          .blueGrey.shade900,
+                                                      fontWeight:
+                                                          FontWeight.w800,
+                                                      fontSize: 11),
+                                                ),
+                                              ],
                                             ),
                                     ),
                                   ),
@@ -586,17 +685,29 @@ class SchActiList extends StatelessWidget {
                                   ),
                                   Container(
                                     decoration: BoxDecoration(
-                                        color: Colors.lightGreen.shade200,
-                                        borderRadius:
-                                            BorderRadius.circular(15)),
+                                      color: Colors.lightGreen.shade200,
+                                    ),
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
-                                      child: Text(
-                                        'Activity type: Call',
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w400,
-                                            fontSize: 11),
+                                      child: Row(
+                                        children: [
+                                          Text(
+                                            'Activity type: ',
+                                            style: TextStyle(
+                                                fontFamily: 'DmSans',
+                                                color: Colors.blueGrey.shade500,
+                                                fontWeight: FontWeight.w400,
+                                                fontSize: 11),
+                                          ),
+                                          Text(
+                                            'Call',
+                                            style: TextStyle(
+                                                fontFamily: 'DmSans',
+                                                color: Colors.blueGrey.shade900,
+                                                fontWeight: FontWeight.w800,
+                                                fontSize: 11),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ),
@@ -605,8 +716,8 @@ class SchActiList extends StatelessWidget {
                             ],
                           ),
                           Container(
-                            width: 80,
-                            height: 80,
+                            width: 50,
+                            height: 50,
                             decoration: BoxDecoration(
                                 color: Colors.white,
                                 shape: BoxShape.circle,
@@ -632,12 +743,17 @@ class SchActiList extends StatelessWidget {
                         children: [
                           Icon(
                             Icons.date_range_outlined,
-                            color: Colors.grey.shade500,
+                            color: Colors.blueGrey.shade800,
+                            size: 16,
                           ),
                           SizedBox(
                             width: 5,
                           ),
-                          Text('Created on ' + item.createdOn)
+                          Text('Created on ' + item.createdOn,
+                              style: TextStyle(
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 12))
                         ],
                       ),
                       SizedBox(
@@ -647,12 +763,17 @@ class SchActiList extends StatelessWidget {
                         children: [
                           Icon(
                             Icons.notifications_outlined,
-                            color: Colors.grey.shade500,
+                            color: Colors.blueGrey.shade800,
+                            size: 16,
                           ),
                           SizedBox(
                             width: 5,
                           ),
-                          Text('Due date on ' + item.dueDate)
+                          Text('Due date on ' + item.dueDate,
+                              style: TextStyle(
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 12))
                         ],
                       )
                     ],

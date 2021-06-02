@@ -40,6 +40,7 @@ dependencies:
   file_picker: ^3.0.2+2
   dependencies:
   syncfusion_flutter_datepicker: ^19.1.65-beta
+  expandable: ^5.0.1
   #easy_localization: ^3.0.0
 
 dev_dependencies:
@@ -76,10 +77,13 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: DmSans
+      fonts:
+        - asset: fonts/DMSans-Bold.ttf
+        - asset: fonts/DMSans-Regular.ttf
+        - asset: fonts/DMSans-Medium.ttf
+        - asset: fonts/DMSans-MediumItalic.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
