@@ -188,12 +188,64 @@ class _ModalPopupState extends State<ModalPopup> {
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: <Widget>[
-                                              IconButton(
-                                                  icon: Icon(
-                                                      Icons.close_outlined),
-                                                  onPressed: () {
-                                                    Navigator.of(context).pop();
-                                                  }),
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: Center(
+                                                  child: Column(
+                                                    children: [
+                                                      Container(
+                                                        height: 3,
+                                                        width: 45,
+                                                        decoration: BoxDecoration(
+                                                            color:
+                                                                Colors.blueGrey,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        15)),
+                                                      ),
+                                                      SizedBox(
+                                                        height: 5,
+                                                      ),
+                                                      (widget.gender == 1)
+                                                          ? Text(
+                                                              widget.namePatient +
+                                                                  ' ' +
+                                                                  widget.age +
+                                                                  ' yrs/Male',
+                                                              style: TextStyle(
+                                                                  fontFamily:
+                                                                      'DmSans',
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w800,
+                                                                  fontSize: 14,
+                                                                  color: Colors
+                                                                      .black),
+                                                            )
+                                                          : Text(
+                                                              widget.namePatient +
+                                                                  ' ' +
+                                                                  widget.age +
+                                                                  ' yrs/Female',
+                                                              style: TextStyle(
+                                                                  fontFamily:
+                                                                      'DmSans',
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w800,
+                                                                  fontSize: 14,
+                                                                  color: Colors
+                                                                      .black),
+                                                            ),
+                                                      SizedBox(
+                                                        height: 15,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
                                               Padding(
                                                 padding:
                                                     const EdgeInsets.all(8.0),

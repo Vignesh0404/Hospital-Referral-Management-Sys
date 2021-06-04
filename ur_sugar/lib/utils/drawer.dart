@@ -26,11 +26,17 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               children: [
                 Text(
                   'REFERRAL MANAGEMENT',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17,
+                      fontFamily: 'DmSans'),
                 ),
                 Text(
                   ' copyrights © Mocero Health Solutions',
-                  style: TextStyle(fontWeight: FontWeight.w300, fontSize: 11),
+                  style: TextStyle(
+                      fontWeight: FontWeight.w300,
+                      fontSize: 11,
+                      fontFamily: 'DmSans'),
                 ),
                 Divider(
                   color: Colors.black,
@@ -44,9 +50,15 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 Icon(Icons.arrow_forward_ios, color: Colors.black, size: 15),
             title: Text(
               'Referrals',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                  fontFamily: 'DmSans'),
             ),
-            subtitle: Text('Your schedule for referrals!'),
+            subtitle: Text(
+              'Your schedule for referrals!',
+              style: TextStyle(),
+            ),
             onTap: () {
               Navigator.of(context).pop();
             },
@@ -56,7 +68,10 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 Icon(Icons.arrow_forward_ios, color: Colors.black, size: 15),
             title: Text(
               'Communication Inprogress',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                  fontFamily: 'DmSans'),
             ),
             subtitle: Text('Your inprogress communications!'),
             onTap: () {
@@ -71,7 +86,10 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 Icon(Icons.arrow_forward_ios, color: Colors.black, size: 15),
             title: Text(
               'Admitted Patients',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                  fontFamily: 'DmSans'),
             ),
             subtitle: Text('check out your admitted patients here!'),
             onTap: () {
@@ -87,7 +105,10 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 Icon(Icons.arrow_forward_ios, color: Colors.black, size: 15),
             title: Text(
               'Discharged/Lost Patients',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                  fontFamily: 'DmSans'),
             ),
             subtitle: Text('Your Lost Patients here!'),
             onTap: () {
@@ -103,7 +124,10 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 Icon(Icons.arrow_forward_ios, color: Colors.black, size: 15),
             title: Text(
               'Logout',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                  fontFamily: 'DmSans'),
             ),
             subtitle: Text('Click here to logout!'),
             onTap: () {},

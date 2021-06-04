@@ -1,15 +1,9 @@
 import 'dart:math';
-import 'package:flutter_localizations/flutter_localizations.dart';
+
 import 'package:flutter/material.dart';
 import 'package:ur_sugar/localizationsTest/provider.dart';
 import 'package:ur_sugar/login.dart';
-import 'package:ur_sugar/onBoardingScreen.dart';
-import 'package:ur_sugar/screens/cardUITest.dart';
-import 'package:ur_sugar/utils/botNav.dart';
-import 'package:ur_sugar/utils/splash.dart';
-import 'localizationsTest/l10n.dart';
-import 'localizationsTest/translate.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 import 'package:provider/provider.dart';
 
 void main() {

@@ -40,11 +40,17 @@ class _DischargedPatientsState extends State<DischargedPatients> {
                 children: [
                   Text(
                     'Discharged Patients,',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                        fontFamily: 'DmSans'),
                   ),
                   Text(
                     'check out your admitted Discharged/Lost Patients here!',
-                    style: TextStyle(fontWeight: FontWeight.w400, fontSize: 12),
+                    style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 12,
+                        fontFamily: 'DmSans'),
                   ),
                 ],
               ),
@@ -89,154 +95,233 @@ class DischargedPatientsList extends StatelessWidget {
           String status;
           return Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Container(
-              width: double.infinity,
-              height: 120,
-              color: Colors.white,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
+            child: Material(
+              elevation: 4,
+              child: Container(
+                height: 195,
+                width: double.infinity,
+                color: Colors.blueGrey,
+                child: Container(
+                  color: Colors.white,
+                  margin: EdgeInsets.only(left: 6),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          '#',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w700, fontSize: 9),
+                        Row(
+                          children: [
+                            Text(
+                              '#' + item.caseId,
+                              style: TextStyle(
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 9),
+                            ),
+                            Spacer(),
+                            Container(
+                              decoration:
+                                  BoxDecoration(color: Colors.blue.shade300),
+                              child: GestureDetector(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Row(
+                                      children: [
+                                        Text(
+                                          'Show More ',
+                                          style: TextStyle(
+                                              fontFamily: 'DmSans',
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w400,
+                                              fontSize: 12),
+                                        ),
+                                        Icon(
+                                          Icons.arrow_forward,
+                                          color: Colors.white,
+                                          size: 15,
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    Navigator.of(context).push(
+                                        new MaterialPageRoute(
+                                            builder: (BuildContext context) =>
+                                                new DetailedView(
+                                                  referral_code_id:
+                                                      referral_code_id,
+                                                  user_id: user_id,
+                                                  case_id: item.caseId,
+                                                  case_status: item.caseStatus,
+                                                  patient_name:
+                                                      item.patientName,
+                                                  phone_number_1:
+                                                      item.phoneNumber1,
+                                                  age: item.age,
+                                                  dob: item.dob,
+                                                  gender: item.gender,
+                                                  doctor_name: item.doctorName,
+                                                  doctor_phone_number:
+                                                      item.doctorPhoneNumber,
+                                                  hospital_name:
+                                                      item.hospitalName,
+                                                  classfication:
+                                                      item.classification,
+                                                  created_on: item.createdOn,
+                                                )));
+                                  }),
+                            )
+                          ],
                         ),
                         Text(
-                          item.caseId ?? 'null',
+                          item.patientName,
                           style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 9,
-                              color: Colors.grey.shade500),
+                              fontFamily: 'DmSans',
+                              fontWeight: FontWeight.w800,
+                              fontSize: 16),
+                        ),
+                        Row(
+                          children: [
+                            (item.gender == 1)
+                                ? Text(
+                                    item.age + ' yrs/Male',
+                                    style: TextStyle(
+                                        fontFamily: 'DmSans',
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 11,
+                                        color: Colors.grey.shade500),
+                                  )
+                                : Text(
+                                    item.age + ' yrs/Female',
+                                    style: TextStyle(
+                                        fontFamily: 'DmSans',
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 11,
+                                        color: Colors.grey.shade500),
+                                  ),
+                            Spacer(),
+                            Text(
+                              item.phoneNumber1 ?? 'not registered',
+                              style: TextStyle(
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 11,
+                                  color: Colors.grey.shade500),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.circle,
+                              color: Colors.green,
+                              size: 8,
+                            ),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            Text(
+                              item.doctorName,
+                              style: TextStyle(
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w800,
+                                  fontSize: 16),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              item.hospitalName,
+                              style: TextStyle(
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 11,
+                                  color: Colors.grey.shade500),
+                            ),
+                            Spacer(),
+                            Text(
+                              item.doctorPhoneNumber ?? 'not registered',
+                              style: TextStyle(
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 11,
+                                  color: Colors.grey.shade500),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              'magic internal doctor',
+                              style: TextStyle(
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 11,
+                                  color: Colors.grey.shade500),
+                            ),
+                            Spacer(),
+                            Text(
+                              item.classification ?? 'null',
+                              style: TextStyle(
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 11,
+                                  color: Colors.lightBlue.shade500),
+                            ),
+                          ],
                         ),
                         Spacer(),
                         Container(
-                            decoration: BoxDecoration(
-                                color: Colors.lightGreen,
-                                borderRadius: BorderRadius.circular(14)),
-                            child: Padding(
-                                padding: const EdgeInsets.all(5.0),
-                                child: Text(item.classification ?? 'NULL',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 11,
-                                        color: Colors.white))))
-                      ],
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              item.patientName ?? 'null',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w700, fontSize: 16),
-                            ),
-                            Text(
-                              item.phoneNumber1 ?? 'null',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 8,
-                                  color: Colors.grey.shade700),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Text(
-                              item.doctorName ?? 'null',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w700, fontSize: 16),
-                            ),
-                            Text(
-                              item.doctorPhoneNumber ?? 'null',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 8,
-                                  color: Colors.grey.shade700),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text('Status'),
-                            (item.caseStatus == "4")
-                                ? Container(
-                                    child: Text(
-                                    'Discharged',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                  ))
-                                : Container(
-                                    child: Text(
-                                    'Lost',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                  ))
-                          ],
-                        ),
-                        Spacer(),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.of(context).push(new MaterialPageRoute(
-                                builder: (BuildContext context) =>
-                                    new DetailedView(
-                                      referral_code_id: referral_code_id,
-                                      user_id: user_id,
-                                      case_id: item.caseId,
-                                      case_status: item.caseStatus,
-                                      patient_name: item.patientName,
-                                      phone_number_1: item.phoneNumber1,
-                                      age: item.age,
-                                      dob: item.dob,
-                                      gender: item.gender,
-                                      doctor_name: item.doctorName,
-                                      doctor_phone_number:
-                                          item.doctorPhoneNumber,
-                                      hospital_name: item.hospitalName,
-                                      classfication: item.classification,
-                                      created_on: item.createdOn,
-                                    )));
-                          },
-                          child: Container(
-                            decoration: BoxDecoration(
-                                color: Colors.lightBlue,
-                                borderRadius: BorderRadius.circular(10)),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Row(
-                                children: [
-                                  Text(
-                                    'view more ',
-                                    style: TextStyle(color: Colors.white),
+                          width: 220,
+                          decoration:
+                              BoxDecoration(color: Colors.blueGrey.shade200),
+                          child: Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Row(
+                              children: [
+                                Text(
+                                  'Referred Date - ',
+                                  style: TextStyle(
+                                      fontFamily: 'DmSans',
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 11,
+                                      color: Colors.white),
+                                ),
+                                Text(
+                                  item.createdOn,
+                                  style: TextStyle(
+                                    fontFamily: 'DmSans',
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 11,
+                                    color: Colors.blueGrey.shade800,
                                   ),
-                                  Icon(Icons.arrow_forward,
-                                      size: 12, color: Colors.white)
-                                ],
-                              ),
+                                )
+                              ],
                             ),
                           ),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          'first referral for this patient',
+                          style: TextStyle(
+                              fontStyle: FontStyle.italic,
+                              fontFamily: 'DmSans',
+                              fontWeight: FontWeight.w400,
+                              fontSize: 11,
+                              color: Colors.grey.shade600),
                         )
                       ],
-                    )
-                  ],
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -244,3 +329,8 @@ class DischargedPatientsList extends StatelessWidget {
         });
   }
 }
+
+/*
+
+
+*/

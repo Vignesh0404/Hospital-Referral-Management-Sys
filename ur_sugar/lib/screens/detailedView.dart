@@ -45,8 +45,11 @@ class _DetailedViewState extends State<DetailedView> {
         iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.grey.shade100,
         title: Text(
-          widget.case_id,
-          style: TextStyle(color: Colors.black),
+          widget.patient_name,
+          style: TextStyle(
+              color: Colors.black,
+              fontFamily: 'DmSans',
+              fontWeight: FontWeight.w800),
         ),
         centerTitle: true,
         leading: IconButton(
@@ -70,29 +73,56 @@ class _DetailedViewState extends State<DetailedView> {
                   children: [
                     Text(
                       'Patient Details',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        fontFamily: 'DmSans',
+                      ),
                     ),
                     SizedBox(
                       height: 8,
                     ),
                     Row(
                       children: [
-                        Text(
-                          'Created On: ' + widget.created_on,
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 10),
+                        Container(
+                          width: 220,
+                          decoration:
+                              BoxDecoration(color: Colors.blueGrey.shade200),
+                          child: Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Row(
+                              children: [
+                                Text(
+                                  'Referred Date - ',
+                                  style: TextStyle(
+                                      fontFamily: 'DmSans',
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 11,
+                                      color: Colors.white),
+                                ),
+                                Text(
+                                  widget.created_on,
+                                  style: TextStyle(
+                                    fontFamily: 'DmSans',
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 11,
+                                    color: Colors.blueGrey.shade800,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
                         ),
                         Spacer(),
                         Container(
-                          decoration:
-                              BoxDecoration(color: Colors.lightBlue.shade200),
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
                               widget.classfication.toUpperCase(),
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 12),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontFamily: 'DmSans'),
                             ),
                           ),
                         )
@@ -109,12 +139,19 @@ class _DetailedViewState extends State<DetailedView> {
                           children: [
                             Text(
                               'Case ID',
-                              style: TextStyle(color: Colors.grey.shade500),
+                              style: TextStyle(
+                                  color: Colors.grey.shade500,
+                                  fontFamily: 'DmSans',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
                             Text(
                               widget.case_id,
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 12),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w600),
                             )
                           ],
                         ),
@@ -123,12 +160,19 @@ class _DetailedViewState extends State<DetailedView> {
                           children: [
                             Text(
                               'Phone No :',
-                              style: TextStyle(color: Colors.grey.shade500),
+                              style: TextStyle(
+                                  color: Colors.grey.shade500,
+                                  fontFamily: 'DmSans',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
                             Text(
                               widget.phone_number_1,
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 12),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w600),
                             )
                           ],
                         )
@@ -145,12 +189,19 @@ class _DetailedViewState extends State<DetailedView> {
                           children: [
                             Text(
                               'Patient Name',
-                              style: TextStyle(color: Colors.grey.shade500),
+                              style: TextStyle(
+                                  color: Colors.grey.shade500,
+                                  fontFamily: 'DmSans',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
                             Text(
                               widget.patient_name,
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 12),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w600),
                             )
                           ],
                         ),
@@ -159,18 +210,28 @@ class _DetailedViewState extends State<DetailedView> {
                           children: [
                             Text(
                               'Gender',
-                              style: TextStyle(color: Colors.grey.shade500),
+                              style: TextStyle(
+                                  color: Colors.grey.shade500,
+                                  fontFamily: 'DmSans',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
-                            (widget.gender == "1")
+                            (widget.gender == 1)
                                 ? Text(
                                     'Male',
                                     style: TextStyle(
-                                        color: Colors.black, fontSize: 12),
+                                        color: Colors.black,
+                                        fontSize: 12,
+                                        fontFamily: 'DmSans',
+                                        fontWeight: FontWeight.w600),
                                   )
                                 : Text(
                                     'Female',
                                     style: TextStyle(
-                                        color: Colors.black, fontSize: 12),
+                                        color: Colors.black,
+                                        fontSize: 12,
+                                        fontFamily: 'DmSans',
+                                        fontWeight: FontWeight.w600),
                                   )
                           ],
                         ),
@@ -187,12 +248,19 @@ class _DetailedViewState extends State<DetailedView> {
                           children: [
                             Text(
                               'Age',
-                              style: TextStyle(color: Colors.grey.shade500),
+                              style: TextStyle(
+                                  color: Colors.grey.shade500,
+                                  fontFamily: 'DmSans',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
                             Text(
                               widget.age,
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 12),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w600),
                             )
                           ],
                         ),
@@ -201,12 +269,19 @@ class _DetailedViewState extends State<DetailedView> {
                           children: [
                             Text(
                               'DOB',
-                              style: TextStyle(color: Colors.grey.shade500),
+                              style: TextStyle(
+                                  color: Colors.grey.shade500,
+                                  fontFamily: 'DmSans',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
                             Text(
                               widget.dob,
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 12),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w600),
                             )
                           ],
                         ),
@@ -223,12 +298,19 @@ class _DetailedViewState extends State<DetailedView> {
                           children: [
                             Text(
                               'Blood Group',
-                              style: TextStyle(color: Colors.grey.shade500),
+                              style: TextStyle(
+                                  color: Colors.grey.shade500,
+                                  fontFamily: 'DmSans',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
                             Text(
                               'A1+',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 12),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w600),
                             )
                           ],
                         ),
@@ -237,12 +319,19 @@ class _DetailedViewState extends State<DetailedView> {
                           children: [
                             Text(
                               'Dr Phone No',
-                              style: TextStyle(color: Colors.grey.shade500),
+                              style: TextStyle(
+                                  color: Colors.grey.shade500,
+                                  fontFamily: 'DmSans',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
                             Text(
                               widget.doctor_phone_number,
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 12),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w600),
                             )
                           ],
                         ),
@@ -259,12 +348,19 @@ class _DetailedViewState extends State<DetailedView> {
                           children: [
                             Text(
                               'Hospital Name',
-                              style: TextStyle(color: Colors.grey.shade500),
+                              style: TextStyle(
+                                  color: Colors.grey.shade500,
+                                  fontFamily: 'DmSans',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
                             Text(
                               widget.hospital_name,
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 12),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w600),
                             )
                           ],
                         ),
@@ -273,12 +369,19 @@ class _DetailedViewState extends State<DetailedView> {
                           children: [
                             Text(
                               'Department',
-                              style: TextStyle(color: Colors.grey.shade500),
+                              style: TextStyle(
+                                  color: Colors.grey.shade500,
+                                  fontFamily: 'DmSans',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
                             Text(
                               'Heart',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 12),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w600),
                             )
                           ],
                         ),
@@ -295,12 +398,19 @@ class _DetailedViewState extends State<DetailedView> {
                           children: [
                             Text(
                               'Referred To',
-                              style: TextStyle(color: Colors.grey.shade500),
+                              style: TextStyle(
+                                  color: Colors.grey.shade500,
+                                  fontFamily: 'DmSans',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
                             Text(
                               'DR.Palaniappan',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 12),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w600),
                             )
                           ],
                         ),
@@ -309,12 +419,19 @@ class _DetailedViewState extends State<DetailedView> {
                           children: [
                             Text(
                               'Attachment',
-                              style: TextStyle(color: Colors.grey.shade500),
+                              style: TextStyle(
+                                  color: Colors.grey.shade500,
+                                  fontFamily: 'DmSans',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
                             Text(
                               'File',
-                              style:
-                                  TextStyle(color: Colors.blue, fontSize: 12),
+                              style: TextStyle(
+                                  color: Colors.blue,
+                                  fontSize: 12,
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w600),
                             )
                           ],
                         ),
@@ -331,12 +448,19 @@ class _DetailedViewState extends State<DetailedView> {
                           children: [
                             Text(
                               'Doctor Name',
-                              style: TextStyle(color: Colors.grey.shade500),
+                              style: TextStyle(
+                                  color: Colors.grey.shade500,
+                                  fontFamily: 'DmSans',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
                             Text(
                               widget.doctor_name,
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 12),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w600),
                             )
                           ],
                         ),
@@ -345,12 +469,19 @@ class _DetailedViewState extends State<DetailedView> {
                           children: [
                             Text(
                               'Referred Reason ',
-                              style: TextStyle(color: Colors.grey.shade500),
+                              style: TextStyle(
+                                  color: Colors.grey.shade500,
+                                  fontFamily: 'DmSans',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
                             Text(
                               'helloo',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 12),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w600),
                             )
                           ],
                         ),
@@ -359,14 +490,17 @@ class _DetailedViewState extends State<DetailedView> {
                     SizedBox(
                       height: 10,
                     ),
-                    Divider(thickness: 1, color: Colors.black),
+                    Divider(thickness: 0.5, color: Colors.black),
                     SizedBox(
                       height: 5,
                     ),
                     Text(
                       'Log Details',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        fontFamily: 'DmSans',
+                      ),
                     ),
                     SizedBox(
                       height: 12,
@@ -378,18 +512,40 @@ class _DetailedViewState extends State<DetailedView> {
                           children: [
                             Text(
                               'SNO',
-                              style: TextStyle(fontWeight: FontWeight.w600),
+                              style: TextStyle(
+                                  color: Colors.grey.shade500,
+                                  fontFamily: 'DmSans',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
-                            Text('1')
+                            Text(
+                              '1',
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w600),
+                            )
                           ],
                         ),
                         Column(
                           children: [
                             Text(
                               'Log Note',
-                              style: TextStyle(fontWeight: FontWeight.w600),
+                              style: TextStyle(
+                                  color: Colors.grey.shade500,
+                                  fontFamily: 'DmSans',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
-                            Text('a')
+                            Text(
+                              'a',
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w600),
+                            )
                           ],
                         ),
                         Column(
@@ -397,9 +553,20 @@ class _DetailedViewState extends State<DetailedView> {
                           children: [
                             Text(
                               'Created On',
-                              style: TextStyle(fontWeight: FontWeight.w600),
+                              style: TextStyle(
+                                  color: Colors.grey.shade500,
+                                  fontFamily: 'DmSans',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
-                            Text('04-Apr-2021 12:05 PM')
+                            Text(
+                              '04-Apr-2021 12:05 PM',
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w600),
+                            )
                           ],
                         ),
                       ],
@@ -407,22 +574,49 @@ class _DetailedViewState extends State<DetailedView> {
                     SizedBox(
                       height: 8,
                     ),
-                    Divider(thickness: 1, color: Colors.black),
+                    Divider(thickness: 0.5, color: Colors.black),
                     SizedBox(
                       height: 5,
                     ),
                     Text(
                       'Activity Details',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        fontFamily: 'DmSans',
+                      ),
                     ),
                     SizedBox(
                       height: 12,
                     ),
-                    Text(
-                      'Created On: 04-Apr-2021 12:02 PM',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
+                    Container(
+                      width: 220,
+                      decoration:
+                          BoxDecoration(color: Colors.blueGrey.shade200),
+                      child: Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: Row(
+                          children: [
+                            Text(
+                              'Referred Date - ',
+                              style: TextStyle(
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 11,
+                                  color: Colors.white),
+                            ),
+                            Text(
+                              widget.created_on,
+                              style: TextStyle(
+                                fontFamily: 'DmSans',
+                                fontWeight: FontWeight.w600,
+                                fontSize: 11,
+                                color: Colors.blueGrey.shade800,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
                     ),
                     SizedBox(
                       height: 8,
@@ -435,12 +629,19 @@ class _DetailedViewState extends State<DetailedView> {
                           children: [
                             Text(
                               'Summary',
-                              style: TextStyle(color: Colors.grey.shade500),
+                              style: TextStyle(
+                                  color: Colors.grey.shade500,
+                                  fontFamily: 'DmSans',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
                             Text(
                               'http://localhost:57347/',
-                              style:
-                                  TextStyle(color: Colors.blue, fontSize: 12),
+                              style: TextStyle(
+                                  color: Colors.blue,
+                                  fontSize: 12,
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w600),
                             )
                           ],
                         ),
@@ -449,12 +650,19 @@ class _DetailedViewState extends State<DetailedView> {
                           children: [
                             Text(
                               'Attachment',
-                              style: TextStyle(color: Colors.grey.shade500),
+                              style: TextStyle(
+                                  color: Colors.grey.shade500,
+                                  fontFamily: 'DmSans',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
                             Text(
                               'File',
-                              style:
-                                  TextStyle(color: Colors.blue, fontSize: 12),
+                              style: TextStyle(
+                                  color: Colors.blue,
+                                  fontSize: 12,
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w600),
                             )
                           ],
                         )
@@ -471,12 +679,19 @@ class _DetailedViewState extends State<DetailedView> {
                           children: [
                             Text(
                               'Due Date',
-                              style: TextStyle(color: Colors.grey.shade500),
+                              style: TextStyle(
+                                  color: Colors.grey.shade500,
+                                  fontFamily: 'DmSans',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
                             Text(
                               '	13-Apr-2021',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 12),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w600),
                             )
                           ],
                         ),
@@ -485,12 +700,19 @@ class _DetailedViewState extends State<DetailedView> {
                           children: [
                             Text(
                               'Assigned to',
-                              style: TextStyle(color: Colors.grey.shade500),
+                              style: TextStyle(
+                                  color: Colors.grey.shade500,
+                                  fontFamily: 'DmSans',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
                             Text(
                               '	Dr.UMA',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 12),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w600),
                             )
                           ],
                         ),
@@ -507,12 +729,19 @@ class _DetailedViewState extends State<DetailedView> {
                           children: [
                             Text(
                               'Notes',
-                              style: TextStyle(color: Colors.grey.shade500),
+                              style: TextStyle(
+                                  color: Colors.grey.shade500,
+                                  fontFamily: 'DmSans',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
                             Text(
                               'asdsadsa',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 12),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w600),
                             )
                           ],
                         ),
@@ -521,12 +750,19 @@ class _DetailedViewState extends State<DetailedView> {
                           children: [
                             Text(
                               'Activity Status',
-                              style: TextStyle(color: Colors.grey.shade500),
+                              style: TextStyle(
+                                  color: Colors.grey.shade500,
+                                  fontFamily: 'DmSans',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
                             Text(
                               'HEART',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 12),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w600),
                             )
                           ],
                         ),
@@ -535,22 +771,49 @@ class _DetailedViewState extends State<DetailedView> {
                     SizedBox(
                       height: 10,
                     ),
-                    Divider(thickness: 1, color: Colors.black),
+                    Divider(thickness: 0.5, color: Colors.black),
                     SizedBox(
                       height: 5,
                     ),
                     Text(
                       'Admit Details',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        fontFamily: 'DmSans',
+                      ),
                     ),
                     SizedBox(
                       height: 12,
                     ),
-                    Text(
-                      'Created on: 04-Apr-2021 12:02 PM',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
+                    Container(
+                      width: 220,
+                      decoration:
+                          BoxDecoration(color: Colors.blueGrey.shade200),
+                      child: Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: Row(
+                          children: [
+                            Text(
+                              'Referred Date - ',
+                              style: TextStyle(
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 11,
+                                  color: Colors.white),
+                            ),
+                            Text(
+                              widget.created_on,
+                              style: TextStyle(
+                                fontFamily: 'DmSans',
+                                fontWeight: FontWeight.w600,
+                                fontSize: 11,
+                                color: Colors.blueGrey.shade800,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
                     ),
                     SizedBox(
                       height: 8,
@@ -563,12 +826,19 @@ class _DetailedViewState extends State<DetailedView> {
                           children: [
                             Text(
                               'Type of Admission',
-                              style: TextStyle(color: Colors.grey.shade500),
+                              style: TextStyle(
+                                  color: Colors.grey.shade500,
+                                  fontFamily: 'DmSans',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
                             Text(
                               'Out Patient',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 12),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w600),
                             )
                           ],
                         ),
@@ -577,12 +847,19 @@ class _DetailedViewState extends State<DetailedView> {
                           children: [
                             Text(
                               'Date of Admission',
-                              style: TextStyle(color: Colors.grey.shade500),
+                              style: TextStyle(
+                                  color: Colors.grey.shade500,
+                                  fontFamily: 'DmSans',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
                             Text(
                               '5-Apr-2021 12:00 AM',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 12),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w600),
                             )
                           ],
                         )
@@ -599,12 +876,19 @@ class _DetailedViewState extends State<DetailedView> {
                           children: [
                             Text(
                               'Consulting Doctor ID',
-                              style: TextStyle(color: Colors.grey.shade500),
+                              style: TextStyle(
+                                  color: Colors.grey.shade500,
+                                  fontFamily: 'DmSans',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
                             Text(
                               'sdsadsa',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 12),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w600),
                             )
                           ],
                         ),
@@ -613,12 +897,19 @@ class _DetailedViewState extends State<DetailedView> {
                           children: [
                             Text(
                               'Doctor Name',
-                              style: TextStyle(color: Colors.grey.shade500),
+                              style: TextStyle(
+                                  color: Colors.grey.shade500,
+                                  fontFamily: 'DmSans',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
                             Text(
                               '	sdsadsa',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 12),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w600),
                             )
                           ],
                         ),
@@ -635,12 +926,19 @@ class _DetailedViewState extends State<DetailedView> {
                           children: [
                             Text(
                               'Attachment ',
-                              style: TextStyle(color: Colors.grey.shade500),
+                              style: TextStyle(
+                                  color: Colors.grey.shade500,
+                                  fontFamily: 'DmSans',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
                             Text(
                               'File',
-                              style:
-                                  TextStyle(color: Colors.blue, fontSize: 12),
+                              style: TextStyle(
+                                  color: Colors.blue,
+                                  fontSize: 12,
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w600),
                             )
                           ],
                         ),
@@ -649,12 +947,19 @@ class _DetailedViewState extends State<DetailedView> {
                           children: [
                             Text(
                               'Notes',
-                              style: TextStyle(color: Colors.grey.shade500),
+                              style: TextStyle(
+                                  color: Colors.grey.shade500,
+                                  fontFamily: 'DmSans',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
                             Text(
                               'sadsads',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 12),
+                              style: TextStyle(
+                                  color: Colors.blue,
+                                  fontSize: 12,
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w600),
                             )
                           ],
                         ),
@@ -663,22 +968,49 @@ class _DetailedViewState extends State<DetailedView> {
                     SizedBox(
                       height: 10,
                     ),
-                    Divider(thickness: 1, color: Colors.black),
+                    Divider(thickness: 0.5, color: Colors.black),
                     SizedBox(
                       height: 5,
                     ),
                     Text(
                       'Discharge Details',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        fontFamily: 'DmSans',
+                      ),
                     ),
                     SizedBox(
                       height: 12,
                     ),
-                    Text(
-                      'Created on: 04-Apr-2021 12:02 PM',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
+                    Container(
+                      width: 220,
+                      decoration:
+                          BoxDecoration(color: Colors.blueGrey.shade200),
+                      child: Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: Row(
+                          children: [
+                            Text(
+                              'Referred Date - ',
+                              style: TextStyle(
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 11,
+                                  color: Colors.white),
+                            ),
+                            Text(
+                              widget.created_on,
+                              style: TextStyle(
+                                fontFamily: 'DmSans',
+                                fontWeight: FontWeight.w600,
+                                fontSize: 11,
+                                color: Colors.blueGrey.shade800,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
                     ),
                     SizedBox(
                       height: 8,
@@ -691,12 +1023,19 @@ class _DetailedViewState extends State<DetailedView> {
                           children: [
                             Text(
                               'Discharge Date',
-                              style: TextStyle(color: Colors.grey.shade500),
+                              style: TextStyle(
+                                  color: Colors.grey.shade500,
+                                  fontFamily: 'DmSans',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
                             Text(
                               '3-Apr-2021 12:00 AM',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 12),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w600),
                             )
                           ],
                         ),
@@ -705,12 +1044,19 @@ class _DetailedViewState extends State<DetailedView> {
                           children: [
                             Text(
                               'Diagnosis',
-                              style: TextStyle(color: Colors.grey.shade500),
+                              style: TextStyle(
+                                  color: Colors.grey.shade500,
+                                  fontFamily: 'DmSans',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
                             Text(
                               'sadsa',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 12),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w600),
                             )
                           ],
                         )
@@ -727,12 +1073,19 @@ class _DetailedViewState extends State<DetailedView> {
                           children: [
                             Text(
                               'Notes',
-                              style: TextStyle(color: Colors.grey.shade500),
+                              style: TextStyle(
+                                  color: Colors.grey.shade500,
+                                  fontFamily: 'DmSans',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
                             Text(
                               'sdsadsa',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 12),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w600),
                             )
                           ],
                         ),
@@ -741,12 +1094,19 @@ class _DetailedViewState extends State<DetailedView> {
                           children: [
                             Text(
                               'Followup Advice',
-                              style: TextStyle(color: Colors.grey.shade500),
+                              style: TextStyle(
+                                  color: Colors.grey.shade500,
+                                  fontFamily: 'DmSans',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
                             Text(
                               '	sdsadsa',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 12),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w600),
                             )
                           ],
                         ),
@@ -763,12 +1123,19 @@ class _DetailedViewState extends State<DetailedView> {
                           children: [
                             Text(
                               'Attachment ',
-                              style: TextStyle(color: Colors.grey.shade500),
+                              style: TextStyle(
+                                  color: Colors.grey.shade500,
+                                  fontFamily: 'DmSans',
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w300),
                             ),
                             Text(
                               'File',
-                              style:
-                                  TextStyle(color: Colors.blue, fontSize: 12),
+                              style: TextStyle(
+                                  color: Colors.blue,
+                                  fontSize: 12,
+                                  fontFamily: 'DmSans',
+                                  fontWeight: FontWeight.w600),
                             )
                           ],
                         ),

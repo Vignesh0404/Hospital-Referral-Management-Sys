@@ -107,6 +107,7 @@ class _LoginState extends State<Login> {
                 'REFERRAL MANAGMENT SYSTEM',
                 style: TextStyle(
                     color: Colors.black,
+                    fontFamily: 'DmSans',
                     fontWeight: FontWeight.w900,
                     fontSize: 18),
               ),
@@ -128,6 +129,7 @@ class _LoginState extends State<Login> {
                       decoration: InputDecoration(
                           labelText: "Email Address",
                           labelStyle: TextStyle(
+                              fontFamily: 'DmSans',
                               fontSize: 15,
                               fontWeight: FontWeight.w400,
                               color: Colors.black87),
@@ -157,6 +159,7 @@ class _LoginState extends State<Login> {
                       decoration: InputDecoration(
                           labelText: "Password",
                           labelStyle: TextStyle(
+                              fontFamily: 'DmSans',
                               fontSize: 15,
                               fontWeight: FontWeight.w400,
                               color: Colors.black87),
@@ -196,6 +199,7 @@ class _LoginState extends State<Login> {
                               child: Text(
                                 'LOGIN',
                                 style: TextStyle(
+                                    fontFamily: 'DmSans',
                                     fontWeight: FontWeight.w600,
                                     fontSize: 14,
                                     color: Colors.white),
@@ -232,7 +236,7 @@ class _LoginState extends State<Login> {
                 style: TextStyle(
                   fontSize: 15,
                   color: Colors.black,
-                  fontFamily: 'Nunito',
+                  fontFamily: 'DmSans',
                 ),
               ),
               Theme(
