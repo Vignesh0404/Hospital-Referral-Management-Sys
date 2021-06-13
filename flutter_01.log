@@ -1,0 +1,51 @@
+Flutter crash report.
+Please report a bug at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter run --machine --target lib/main.dart -d da8151c --dart-define=flutter.inspector.structuredErrors=true --start-paused --web-server-debug-protocol ws --web-allow-expose-url --devtools-server-address http://127.0.0.1:9100/
+
+## exception
+
+RPCError: getIsolate: (112) Service has disappeared
+
+```
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (Channel stable, 2.0.5, on Linux, locale en_US.UTF-8)
+    • Flutter version 2.0.5 at /home/vignesh/snap/flutter/common/flutter
+    • Framework revision adc687823a (8 weeks ago), 2021-04-16 09:40:20 -0700
+    • Engine revision b09f014e96
+    • Dart version 2.12.3
+
+[✓] Android toolchain - develop for Android devices (Android SDK version 30.0.1)
+    • Android SDK at /home/vignesh/Android/Sdk
+    • Platform android-30, build-tools 30.0.1
+    • Java binary at: /home/vignesh/Documents/android-studio/jre/bin/java
+    • Java version OpenJDK Runtime Environment (build 1.8.0_242-release-1644-b3-6222593)
+    • All Android licenses accepted.
+
+[✓] Chrome - develop for the web
+    • Chrome at google-chrome
+
+[✓] Android Studio (version 4.0)
+    • Android Studio at /home/vignesh/Documents/android-studio
+    • Flutter plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/9212-flutter
+    • Dart plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/6351-dart
+    • Java version OpenJDK Runtime Environment (build 1.8.0_242-release-1644-b3-6222593)
+
+[✓] VS Code (version 1.54.1)
+    • VS Code at /usr/share/code
+    • Flutter extension version 3.22.0
+
+[✓] Connected device (2 available)
+    • vivo 1804 (mobile) • da8151c • android-arm64  • Android 10 (API 29)
+    • Chrome (web)       • chrome  • web-javascript • Google Chrome 84.0.4147.105
+
+• No issues found!
+```
