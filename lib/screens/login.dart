@@ -36,7 +36,7 @@ class _LoginState extends State<Login> {
       functionLoaderBox(context);
       http.Response response = await http.post(
           Uri.parse(
-              'https://referralapi.convenientcare.life/api/UserLogIn/LoginVerification'),
+              'your_api_url'),
           body: json.encode({'user_name': emailId.text, "user_password": password.text}),
           headers: {"Content-Type": "application/json"});
       Navigator.of(context).pop();
