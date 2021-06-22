@@ -8,7 +8,7 @@ import 'package:http/http.dart' as http;
 Future<List<Table3>> fetchLogs(http.Client client, String case_id) async {
   final response = await client.post(
       Uri.parse(
-          'https://referralapi.convenientcare.life/api/Case_Details/GetCaseDetails'),
+          'your_api_url'),
       body: jsonEncode({"dml_indicator": "CLD", "referral_code_id": "1", "case_id": case_id}),
       headers: {"Content-Type": "application/json"});
 
