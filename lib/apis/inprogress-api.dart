@@ -9,7 +9,7 @@ Future<List<Table2>> fetchProgress(
     http.Client client, int referral_code_id) async {
   final response = await client.post(
       Uri.parse(
-          'https://referralapi.convenientcare.life/api/Case_Details/GetCaseDetails'),
+          'your_api_url'),
       body: jsonEncode({"dml_indicator": "SCDC", "referral_code_id": referral_code_id}),
       headers: {"Content-Type": "application/json"});
 
