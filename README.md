@@ -19,9 +19,9 @@
      <td>Dashboard Page</td>
   </tr>
   <tr>
-    <td><img src="https://github.com/Vignesh0404/Mocero-Referral/blob/master/output/1.jpeg" width=300 height=650></td>
-    <td><img src="https://github.com/Vignesh0404/Mocero-Referral/blob/master/output/2.jpeg" width=300 height=650></td>
-    <td><img src="https://github.com/Vignesh0404/Mocero-Referral/blob/master/output/3.jpeg" width=300 height=650></td>
+    <td><img src="https://github.com/Vignesh0404/Mocero-Referral/blob/master/output/1.jpeg" width=340 height=630></td>
+    <td><img src="https://github.com/Vignesh0404/Mocero-Referral/blob/master/output/2.jpeg" width=340 height=630></td>
+    <td><img src="https://github.com/Vignesh0404/Mocero-Referral/blob/master/output/3.jpeg" width=340 height=630></td>
   </tr>
  </table>
  <br>
