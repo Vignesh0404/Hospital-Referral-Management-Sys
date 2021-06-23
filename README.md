@@ -19,9 +19,9 @@
      <td>Dashboard Page</td>
   </tr>
   <tr>
-    <td><img src="https://github.com/Vignesh0404/Mocero-Referral/blob/master/output/1.jpeg" width=340 height=630></td>
-    <td><img src="https://github.com/Vignesh0404/Mocero-Referral/blob/master/output/2.jpeg" width=340 height=630></td>
-    <td><img src="https://github.com/Vignesh0404/Mocero-Referral/blob/master/output/3.jpeg" width=340 height=630></td>
+    <td><img src="https://github.com/Vignesh0404/Mocero-Referral/blob/master/output/1.jpeg" width=350 height=600></td>
+    <td><img src="https://github.com/Vignesh0404/Mocero-Referral/blob/master/output/2.jpeg" width=350 height=600></td>
+    <td><img src="https://github.com/Vignesh0404/Mocero-Referral/blob/master/output/3.jpeg" width=350 height=600></td>
   </tr>
  </table>
  <br>
@@ -32,9 +32,9 @@
      <td>Log Details</td>
   </tr>
   <tr>
-    <td><img src="https://github.com/Vignesh0404/Mocero-Referral/blob/master/output/4.jpeg" width=300 height=650></td>
-    <td><img src="https://github.com/Vignesh0404/Mocero-Referral/blob/master/output/5.jpeg" width=300 height=650></td>
-    <td><img src="https://github.com/Vignesh0404/Mocero-Referral/blob/master/output/6.jpeg" width=300 height=650></td>
+    <td><img src="https://github.com/Vignesh0404/Mocero-Referral/blob/master/output/4.jpeg" width=350 height=600></td>
+    <td><img src="https://github.com/Vignesh0404/Mocero-Referral/blob/master/output/5.jpeg" width=350 height=600></td>
+    <td><img src="https://github.com/Vignesh0404/Mocero-Referral/blob/master/output/6.jpeg" width=350 height=600></td>
   </tr>
  </table>
  <br>
@@ -45,9 +45,9 @@
      <td>Discharge Now</td>
   </tr>
   <tr>
-    <td><img src="https://github.com/Vignesh0404/Mocero-Referral/blob/master/output/7.jpeg" width=300 height=650></td>
-    <td><img src="https://github.com/Vignesh0404/Mocero-Referral/blob/master/output/8.jpeg" width=300 height=650></td>
-    <td><img src="https://github.com/Vignesh0404/Mocero-Referral/blob/master/output/9.jpeg" width=300 height=650></td>
+    <td><img src="https://github.com/Vignesh0404/Mocero-Referral/blob/master/output/7.jpeg" width=350 height=600></td>
+    <td><img src="https://github.com/Vignesh0404/Mocero-Referral/blob/master/output/8.jpeg" width=350 height=600></td>
+    <td><img src="https://github.com/Vignesh0404/Mocero-Referral/blob/master/output/9.jpeg" width=350 height=600></td>
   </tr>
  </table>
  <br>
@@ -58,9 +58,9 @@
      <td>Detailed view Page</td>
   </tr>
   <tr>
-    <td><img src="https://github.com/Vignesh0404/Mocero-Referral/blob/master/output/10.jpeg" width=300 height=650></td>
-    <td><img src="https://github.com/Vignesh0404/Mocero-Referral/blob/master/output/11.jpeg" width=300 height=650></td>
-    <td><img src="https://github.com/Vignesh0404/Mocero-Referral/blob/master/output/12.jpeg" width=300 height=650></td>
+    <td><img src="https://github.com/Vignesh0404/Mocero-Referral/blob/master/output/10.jpeg" width=350 height=600></td>
+    <td><img src="https://github.com/Vignesh0404/Mocero-Referral/blob/master/output/11.jpeg" width=350 height=600></td>
+    <td><img src="https://github.com/Vignesh0404/Mocero-Referral/blob/master/output/12.jpeg" width=350 height=600></td>
   </tr>
  </table>
  <br>
